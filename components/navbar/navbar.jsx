@@ -61,11 +61,11 @@ const Navbar = ({ services }) => {
                     Services <FaChevronDown className="" />
                   </Link>
                   <ul>
-                  {servicesdata.map((servicesditems, index) => (
+                  {servicesdata?.map((servicesditems, index) => (
 
                   <li key={index + 1}>
-                    <Link href={`/services/${servicesditems.slugUrl}`} className="" >
-                      {servicesditems.title}
+                    <Link href={`/services/${servicesditems?.slugUrl}`} className="" >
+                      {servicesditems?.title}
                     </Link>
                   </li>
                   ))}
@@ -76,11 +76,11 @@ const Navbar = ({ services }) => {
                     Tools <FaChevronDown className="" />
                   </Link>
                   <ul>
-                    {toolsdata.map((toolsitems, index) => (
+                    {toolsdata?.map((toolsitems, index) => (
 
                       <li key={index + 1}>
-                        <Link href={`${toolsitems.link}`} className="" >
-                          {toolsitems.name}
+                        <Link href={`${toolsitems?.link}`} className="" >
+                          {toolsitems?.name}
                         </Link>
                       </li>
                     ))}
@@ -169,14 +169,14 @@ const Navbar = ({ services }) => {
                 {/* Dropdown content */}
               {showServices && (
                   <ul >
-                       {servicesdata.map((servicesditems, index) => (
+                       {servicesdata?.map((servicesditems, index) => (
                 <li  key={index + 1}>
                       <Link
                         className=""
                         key={index}
-                        href={`/services/${servicesditems.slugUrl}`}
+                        href={`/services/${servicesditems?.slugUrl}`}
                       >
-                        {servicesditems.title}
+                        {servicesditems?.title}
                       </Link>
                       </li>
                     ))}
@@ -187,11 +187,11 @@ const Navbar = ({ services }) => {
                 {/* Dropdown content */}
                 {showTools && (
                   <ul className="">
-                    {toolsdata.map((toolsitems, index) => (
+                    {toolsdata?.map((toolsitems, index) => (
 
                       <li key={index + 1}>
-                        <Link href={`${toolsitems.link}`} className="" >
-                          {toolsitems.name}
+                        <Link href={`${toolsitems?.link}`} className="" >
+                          {toolsitems?.name}
                         </Link>
                       </li>
                     ))}

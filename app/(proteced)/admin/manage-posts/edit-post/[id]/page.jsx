@@ -69,12 +69,12 @@ export function InputForm({ postId }) {
         setLoading(true);
         const formData = new FormData();
         formData.append('image', selectedImage);
-        formData.append('posttitle', data.posttitle);
-        formData.append('metatitle', data.metatitle);
-        formData.append('description', data.description);
-        formData.append('category', data.category);
+        formData.append('posttitle', data?.posttitle);
+        formData.append('metatitle', data?.metatitle);
+        formData.append('description', data?.description);
+        formData.append('category', data?.category);
         formData.append('content', content);
-        formData.append('keywords', data.keywords);
+        formData.append('keywords', data?.keywords);
         try {
             let response;
             response = await axios.put(`/api/blogs/${postId}`, formData, {
@@ -108,8 +108,8 @@ export function InputForm({ postId }) {
     const fetchCategories = async () => {
         try {
             const response = await axios.get("/api/category/");
-            if (response.status === 200) {
-                setCategories(response.data)
+            if (response?.status === 200) {
+                setCategories(response?.data)
             }
         }
         catch (error) {

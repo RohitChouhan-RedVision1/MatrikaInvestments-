@@ -87,11 +87,11 @@ const SinglePostPage = async ({ params }) => {
                                                     {socialMedia
                                                         .filter((link) => !link.isHidden)
                                                         .map((link, index) => (
-                                                        <Link key={index} target="_blank" href={link.url}>
+                                                        <Link key={index} target="_blank" href={link?.url}>
                                                             <div
                                                             className={`${styles.followIcon}`}
                                                             >
-                                                            {iconMap[link.title] || (
+                                                            {iconMap[link?.title] || (
                                                                 <FaXTwitter  />
                                                             )}
                                                             </div>
@@ -143,11 +143,11 @@ const SinglePostPage = async ({ params }) => {
                                                         {socialMedia
                                                         .filter((link) => !link.isHidden)
                                                         .map((link, index) => (
-                                                        <Link key={index} target="_blank" href={link.url}>
+                                                        <Link key={index} target="_blank" href={link?.url}>
                                                             <div
                                                             className={``}
                                                             >
-                                                            {iconMap[link.title] || (
+                                                            {iconMap[link?.title] || (
                                                                 <FaXTwitter className="text-[var(--rv-primary)]" />
                                                             )}
                                                             </div>

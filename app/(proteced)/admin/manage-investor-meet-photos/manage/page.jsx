@@ -57,7 +57,7 @@ const DataTableDemo = () => {
             try {
                 const res = await axios.get("/api/investor-photos");
                 if (res.status === 200) {
-                    setData(res.data);
+                    setData(res?.data);
                 }
             } catch (error) {
                 console.error("Failed to fetch blogs", error);
@@ -193,7 +193,7 @@ const DataTableDemo = () => {
                                             column.toggleVisibility(!!value)
                                         }
                                     >
-                                        {column.id}
+                                        {column?.id}
                                     </DropdownMenuItem>
                                 ))}
                         </DropdownMenuContent>

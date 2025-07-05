@@ -31,7 +31,7 @@ export default async function ContactUs() {
                     width={500}
                     height={300}
                   />
-                <Link href={`tel:${siteData.mobile}`}>
+                <Link href={`tel:${siteData?.mobile}`}>
                   <div className={styles.contactInfoBody}>
                     <div className={styles.iconBox}>
                       <Image
@@ -58,7 +58,7 @@ export default async function ContactUs() {
                     width={500}
                     height={300}
                   />
-                <Link href={`mailto:${siteData.email}`}>
+                <Link href={`mailto:${siteData?.email}`}>
                   <div className={styles.contactInfoBody}>
                     <div className={styles.iconBox}>
                       <Image
@@ -85,7 +85,7 @@ export default async function ContactUs() {
                     width={500}
                     height={300}
                   />
-               <Link  href={siteData.mapurl}>
+               <Link  href={siteData?.mapurl}>
                   <div className={styles.contactInfoBody}>
                     <div className={styles.iconBox}>
                       <Image

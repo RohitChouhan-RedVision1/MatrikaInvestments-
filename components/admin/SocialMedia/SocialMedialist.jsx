@@ -106,24 +106,24 @@ const SocialMediaTable = () => {
       {/* Mobile-friendly cards */}
       <div className="block md:hidden space-y-4">
         {socials.map((item, index) => (
-          <div key={item._id} className="border rounded-lg p-4 shadow-sm">
+          <div key={item?._id} className="border rounded-lg p-4 shadow-sm">
             <div className="mb-2"><strong>Sr No:</strong> {index + 1}</div>
             <div className="mb-2"><strong>Title:</strong> {item.title}</div>
             <div className="mb-2">
               <strong>URL:</strong>{' '}
-              <a href={item.url} className="text-blue-500 break-all" target="_blank" rel="noopener noreferrer">
-                {item.url}
+              <a href={item?.url} className="text-blue-500 break-all" target="_blank" rel="noopener noreferrer">
+                {item?.url}
               </a>
             </div>
             <div className="mb-2 flex items-center">
               <strong className="mr-2">Status:</strong>
               <button
                 className={`px-2 py-1 text-lg rounded ${
-                  item.isHidden ? 'bg-red-500 text-white' : 'bg-green-500 text-white'
+                  item?.isHidden ? 'bg-red-500 text-white' : 'bg-green-500 text-white'
                 }`}
-                onClick={() => handleToggleStatus(item._id, item.isHidden)}
+                onClick={() => handleToggleStatus(item?._id, item?.isHidden)}
               >
-                {item.isHidden ? <FaEyeSlash /> : <IoEyeSharp />}
+                {item?.isHidden ? <FaEyeSlash /> : <IoEyeSharp />}
               </button>
             </div>
             <div className="flex space-x-2 mt-2">

@@ -42,9 +42,9 @@ export function InputForm() {
         setLoading(true)
         const formData = new FormData();
         formData.append('image', selectedImage);
-        formData.append('title', data.title);
-        formData.append('videoUrl', data.videoUrl);
-        formData.append('embedUrl', data.embedUrl);
+        formData.append('title', data?.title);
+        formData.append('videoUrl', data?.videoUrl);
+        formData.append('embedUrl', data?.embedUrl);
 
         try {
             const response = await axios.post('/api/video-admin/', formData, {

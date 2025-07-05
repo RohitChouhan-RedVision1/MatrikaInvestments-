@@ -197,7 +197,7 @@ const DataTableDemo = () => {
                                             column.toggleVisibility(!!value)
                                         }
                                     >
-                                        {column.id}
+                                        {column?.id}
                                     </DropdownMenuItem>
                                 ))}
                         </DropdownMenuContent>

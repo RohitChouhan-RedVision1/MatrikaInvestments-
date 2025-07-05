@@ -126,11 +126,11 @@ const iconMap = {
                         <div className={styles.footerLinks}>
                             <h3>Services</h3>
                             <ul>
-                            {servicesdata.map((servicesditems, index) => (
+                            {servicesdata?.map((servicesditems, index) => (
 
                                 <li key={index + 1}>
-                                <Link href={`/services/${servicesditems.slugUrl}`} className="" >
-                                    {servicesditems.title}
+                                <Link href={`/services/${servicesditems?.slugUrl}`} className="" >
+                                    {servicesditems?.title}
                                 </Link>
                                 </li>
                                 ))}
@@ -224,8 +224,8 @@ const iconMap = {
                          {socialMedia
                             .filter((link) => !link.isHidden).map((link, index) => (
                                 <li key={index} className={`${styles.followIcon}`} >
-                            <Link  target="_blank" href={link.url}>
-                                {iconMap[link.title] || (
+                            <Link  target="_blank" href={link?.url}>
+                                {iconMap[link?.title] || (
                                     <FaXTwitter  />
                                 )}
                             </Link> 

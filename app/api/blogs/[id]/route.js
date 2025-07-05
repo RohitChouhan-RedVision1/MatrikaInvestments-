@@ -72,12 +72,12 @@ export async function PUT(req, { params }) {
             fs.mkdirSync(uploadDirectory, { recursive: true });
         };
         // Check if there's a new image to upload/update
-        let newImageUrl = blog.image.url; // Keep the current image URL by default
-        let newPublicId = blog.image.public_id; // Keep the current Cloudinary public_id by default
+        let newImageUrl = blog?.image?.url; // Keep the current image URL by default
+        let newPublicId = blog?.image?.public_id; // Keep the current Cloudinary public_id by default
         const image = data.get('image'); // Get the new image from form data
         // Handle image only if it's provided and not 'null'
         if (data.get('image') && data.get('image') !== 'null') {
-            const publicId = blog.image ? .public_id;
+            const publicId = blog?.image?.public_id;
             if (publicId) {
                 const result = await cloudinary.uploader.destroy(publicId);
                 if (result.result !== 'ok') {
@@ -108,13 +108,13 @@ export async function PUT(req, { params }) {
                     url: newImageUrl,
                     public_id: newPublicId,
                 },
-                posttitle: data.get('posttitle'), // Access form fields correctly
-                slug: slugify(data.get('posttitle')),
-                metatitle: data.get('metatitle'),
-                description: data.get('description'),
-                content: data.get('content'),
-                keywords: data.get('keywords'),
-                category: data.get('category'),
+                posttitle: data?.get('posttitle'), // Access form fields correctly
+                slug: slugify(data?.get('posttitle')),
+                metatitle: data?.get('metatitle'),
+                description: data?.get('description'),
+                content: data?.get('content'),
+                keywords: data?.get('keywords'),
+                category: data?.get('category'),
             }, { new: true } // Return the updated document
         );
 

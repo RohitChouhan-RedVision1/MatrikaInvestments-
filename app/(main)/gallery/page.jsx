@@ -79,14 +79,14 @@ const Gallery = () => {
                             
                             <div className="overflow-hidden rounded ">
                                 <img
-                                    src={item.image?.url}
-                                    alt={item.title}
+                                    src={item?.image?.url}
+                                    alt={item?.title}
                                     className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-300"
                                 />
                             </div>
-                            <p className="text-3xl font-semibold mb-1">{item.title}</p>
-                            <p className="text-lg text-gray-500 mb-2">{new Date(item.eventDate).toLocaleDateString()}</p>
-                            <p className=" mt-2 text-gray-700">{item.description}</p>
+                            <p className="text-3xl font-semibold mb-1">{item?.title}</p>
+                            <p className="text-lg text-gray-500 mb-2">{new Date(item?.eventDate).toLocaleDateString()}</p>
+                            <p className=" mt-2 text-gray-700">{item?.description}</p>
                         </div>
                     ))}
                 </div>

@@ -68,9 +68,9 @@ export function InputForm({ postId }) {
     const formData = new FormData();
 
     formData.append("image", selectedImage);
-    formData.append("title", data.title);
-    formData.append("videoUrl", data.videoUrl);
-    formData.append("embedUrl", data.embedUrl);
+    formData.append("title", data?.title);
+    formData.append("videoUrl", data?.videoUrl);
+    formData.append("embedUrl", data?.embedUrl);
 
     try {
       let response;

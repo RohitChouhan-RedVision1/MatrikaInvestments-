@@ -56,7 +56,7 @@ const DataTableDemo = () => {
             setLoading(true);
             try {
                 const res = await axios.get("/api/blogs/");
-                if (res.status === 200) {
+                if (res?.status === 200) {
                     setData(res.data);
                 }
             } catch (error) {
@@ -192,7 +192,7 @@ const DataTableDemo = () => {
                                             column.toggleVisibility(!!value)
                                         }
                                     >
-                                        {column.id}
+                                        {column?.id}
                                     </DropdownMenuItem>
                                 ))}
                         </DropdownMenuContent>

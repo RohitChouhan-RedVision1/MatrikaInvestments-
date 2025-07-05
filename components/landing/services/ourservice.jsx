@@ -40,7 +40,7 @@ export default function OurServices() {
             >
               {servicesdata?.map((item, index) => (
                 <Link
-                  href={`/services/${item.slugUrl}`}
+                  href={`/services/${item?.slugUrl}`}
                   key={index}
                   className={styles.serviceItemLink}
                 >
@@ -50,11 +50,11 @@ export default function OurServices() {
                     </div>
                     <div className={styles.serviceContentBox}>
                       <div className={styles.iconBox}>
-                        <img src={`${item.iconeImg}`} alt={item.name} />
+                        <img src={`${item?.iconeImg}`} alt={item?.name} />
                       </div>
                       <div className={styles.serviceItemContent}>
-                        <h3>{item.title}</h3>
-                        <p className="line-clamp-5">{item.shortDescription.slice(0, 150)}...</p>
+                        <h3>{item?.title}</h3>
+                        <p className="line-clamp-5">{item?.shortDescription.slice(0, 150)}...</p>
                         <span className={styles.serviceBtn}>
                           <img src="/images/arrow-white.svg" alt="Arrow icon" />
                         </span>

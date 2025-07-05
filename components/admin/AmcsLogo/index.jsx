@@ -68,9 +68,9 @@ const AmcsLogo = () => {
                 <div className="mx-1" key={index}>
                   <Button
                     className="text-white px-3 py-1 bg-primary hover:bg-indigo-500 rounded"
-                    onClick={() => setLogoCategory(item._id)}
+                    onClick={() => setLogoCategory(item?._id)}
                   >
-                    {item.title}
+                    {item?.title}
                   </Button>
                 </div>
               ))}
@@ -87,22 +87,22 @@ const AmcsLogo = () => {
                 .filter(logo => logo.logocategory == logoCategory)
                 .map((item, index) => (
                   <div
-                    className={`rounded-[10px] border-2 ${item.status ? "border-green" : "border-red-500"
+                    className={`rounded-[10px] border-2 ${item?.status ? "border-green" : "border-red-500"
                       } bg-white p-2 shadow-1 dark:bg-gray-dark dark:shadow-card sm:p-4 text-center flex flex-col items-center`}
                     key={index}
                   >
                     <div className="flex justify-end gap-3 mb-3">
                       <button
-                        className={`flex justify-center rounded-[7px] px-3 py-[7px] font-medium ${item.status
+                        className={`flex justify-center rounded-[7px] px-3 py-[7px] font-medium ${item?.status
                           ? "bg-green-500 text-white"
                           : "bg-red-500 text-black"
                           }`}
                         type="button"
                         onClick={() =>
-                          handleStatusChange(item._id, item.status)
+                          handleStatusChange(item?._id, item?.status)
                         }
                       >
-                        {item.status ? (
+                        {item?.status ? (
                           <svg
                             className="fill-current"
                             width="20"
@@ -137,7 +137,7 @@ const AmcsLogo = () => {
                       <button
                         className="flex justify-center rounded-[7px] border border-stroke px-3 py-[7px] font-medium text-dark hover:shadow-1 dark:border-dark-3 dark:text-white hover:dark:text-red-500"
                         type="submit"
-                        onClick={() => handleDeleteAmcLogo(item._id)}
+                        onClick={() => handleDeleteAmcLogo(item?._id)}
                       >
                         <svg
                           className="fill-current"
@@ -170,7 +170,7 @@ const AmcsLogo = () => {
                       <button
                         className="flex justify-center rounded-[7px] border border-gray-700 px-3 py-[7px] font-medium text-gray-2 hover:bg-opacity-90"
                         type="submit"
-                        onClick={() => handleEditModelOpen(item._id)}
+                        onClick={() => handleEditModelOpen(item?._id)}
                       >
                         <Image
                           src={"/images/icon/pen.svg"}
@@ -182,10 +182,10 @@ const AmcsLogo = () => {
                       </button>
                     </div>
                     <div className="my-4">
-                      {item.logo && typeof item?.logo !== "string" ? (
+                      {item?.logo && typeof item?.logo !== "string" ? (
                         <Image
                           // Generate a temporary URL for File
-                          src={URL.createObjectURL(item.logo)}
+                          src={URL.createObjectURL(item?.logo)}
                           width={150}
                           height={100}
                           alt="Uploaded Logo"
@@ -193,14 +193,14 @@ const AmcsLogo = () => {
                       ) : (
                         <Image
                           // Use string or fallback placeholder
-                          src={item.logo || "/placeholder-image.jpg"}
+                          src={item?.logo || "/placeholder-image.jpg"}
                           width={150}
                           height={100}
                           alt="Logo"
                         />
                       )}
                     </div>
-                    <p className="font-semibold">{item.logoname}</p>
+                    <p className="font-semibold">{item?.logoname}</p>
                   </div>
                 ))
             )}

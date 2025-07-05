@@ -36,8 +36,8 @@ const filterDataByRange = (sipData, sensexData) => {
     if (!sipData || !Array.isArray(sipData)) return [];
     const filteredData = sipData.map((item, index) => {
         const dataPoint = {
-            date: item.date || new Date().toISOString(),
-            amount: item.currentValue || 0,
+            date: item?.date || new Date().toISOString(),
+            amount: item?.currentValue || 0,
         };
         if (sensexData && Array.isArray(sensexData) && sensexData[index]) {
             dataPoint.sensexAmount = sensexData[index].currentValue || 0;

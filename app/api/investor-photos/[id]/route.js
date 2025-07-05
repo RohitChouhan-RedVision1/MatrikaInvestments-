@@ -19,7 +19,7 @@ export async function DELETE(req, { params }) {
             return NextResponse.json({ error: 'Photo not found' }, { status: 404 });
         }
 
-        const publicId = post.image.public_id;
+        const publicId = post?.image?.public_id;
         if (publicId) {
             const result = await cloudinary.uploader.destroy(publicId);
 
@@ -73,12 +73,12 @@ export async function PUT(req, { params }) {
             fs.mkdirSync(uploadDirectory, { recursive: true });
         };
         // Check if there's a new image to upload/update
-        let newImageUrl = post.image.url; // Keep the current image URL by default
-        let newPublicId = post.image.public_id; // Keep the current Cloudinary public_id by default
+        let newImageUrl = post?.image?.url; // Keep the current image URL by default
+        let newPublicId = post?.image?.public_id; // Keep the current Cloudinary public_id by default
         const image = data.get('image'); // Get the new image from form data
         // Handle image only if it's provided and not 'null'
         if (data.get('image') && data.get('image') !== 'null') {
-            const publicId = post.image ? .public_id;
+            const publicId = post?.image?.public_id;
             if (publicId) {
                 const result = await cloudinary.uploader.destroy(publicId);
                 if (result.result !== 'ok') {
@@ -88,7 +88,7 @@ export async function PUT(req, { params }) {
             // Generate a unique filename
             const a = await image.arrayBuffer();
             const buffer = Buffer.from(a)
-            const uniqueFilename = `${Date.now()}_${image.name}`;
+            const uniqueFilename = `${Date.now()}_${image?.name}`;
             const filePath = path.join(uploadDirectory, uniqueFilename);
             await fs.promises.writeFile(filePath, buffer);
             // Return the file path as a response
@@ -109,9 +109,9 @@ export async function PUT(req, { params }) {
                     url: newImageUrl,
                     public_id: newPublicId,
                 },
-                title: data.get('title'),
-                description: data.get('description'),
-                eventDate: data.get('eventDate'),
+                title: data?.get('title'),
+                description: data?.get('description'),
+                eventDate: data?.get('eventDate'),
             }, { new: true } // Return the updated document
         );
 

@@ -38,12 +38,12 @@ const EditInvestorMeet = () => {
     if (id) {
       axios.get(`/api/investor-photos/${id}`).then((res) => {
         
-        const data = res.data.post;
+        const data = res?.data?.post;
 
-        form.setValue("title", data.title || "");
-        form.setValue("description", data.description || "");
-        form.setValue("eventDate", data.eventDate ? new Date(data.eventDate).toISOString().slice(0, 10) : "");
-        setPreviousImage(data.image?.url);
+        form.setValue("title", data?.title || "");
+        form.setValue("description", data?.description || "");
+        form.setValue("eventDate", data?.eventDate ? new Date(data.eventDate).toISOString().slice(0, 10) : "");
+        setPreviousImage(data?.image?.url);
       });
     }
   }, [id]);
@@ -51,10 +51,10 @@ const EditInvestorMeet = () => {
   const onSubmit = async (values) => {
     setLoading(true);
     const formData = new FormData();
-    if (values.title) formData.append("title", values.title);
-    if (values.description) formData.append("description", values.description);
-    if (values.eventDate) formData.append("eventDate", values.eventDate);
-    if (values.image instanceof File) formData.append("image", values.image);
+    if (values?.title) formData.append("title", values?.title);
+    if (values?.description) formData.append("description", values?.description);
+    if (values?.eventDate) formData.append("eventDate", values?.eventDate);
+    if (values?.image instanceof File) formData.append("image", values?.image);
 
     try {
       await axios.put(`/api/investor-photos/${id}`, formData, {

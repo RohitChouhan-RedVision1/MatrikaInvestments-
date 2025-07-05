@@ -109,7 +109,7 @@ export async function PUT(req, { params }) {
         }
 
         // Update the testimonial fields only if new values are provided
-        video.title = title || video.title;
+        video.title = title || video?.title;
         video.videoUrl = videoUrl || video.videoUrl;
         video.embedUrl = embedUrl || video.embedUrl;
 

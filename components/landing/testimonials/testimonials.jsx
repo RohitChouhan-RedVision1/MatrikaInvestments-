@@ -69,7 +69,7 @@ export function Testimonials() {
                   loop={true}
                 >
                   <div className="swiper-wrapper" data-cursor-text="Drag">
-                    {testimonials.map((testimonial, index) => (
+                    {testimonials?.map((testimonial, index) => (
                       <SwiperSlide key={index}>
                         <div className={styles.testimonialitembox}>
                           <div className={styles.testimonialheader}>
@@ -89,7 +89,7 @@ export function Testimonials() {
                           <div className={styles.testimonialbody}>
                               <span
                                 className=""
-                                dangerouslySetInnerHTML={createMarkup(testimonial.content)}
+                                dangerouslySetInnerHTML={createMarkup(testimonial?.content)}
                               ></span>
                               <button
                                 
@@ -103,10 +103,10 @@ export function Testimonials() {
                           </div>
                           <div className={styles.testimonialauthor}>
                             <div className={styles.authorimage}>
-                                <Image src={testimonial.image.url} alt={testimonial.authorName} width={120} height={120} />
+                                <Image src={testimonial?.image.url} alt={testimonial?.authorName} width={120} height={120} />
                             </div>
                             <div className={styles.authorcontent}> 
-                              <h3>{testimonial.author} / <span>{testimonial.designation} </span></h3>
+                              <h3>{testimonial?.author} / <span>{testimonial?.designation} </span></h3>
                             </div>
                           </div>
                         </div>
@@ -131,8 +131,8 @@ export function Testimonials() {
             >
               ×
             </button>
-            <h3 className="text-lg font-semibold mb-4">{selectedTestimonial.author}</h3>
-            <p dangerouslySetInnerHTML={createMarkup(selectedTestimonial.content)}></p>
+            <h3 className="text-lg font-semibold mb-4">{selectedTestimonial?.author}</h3>
+            <p dangerouslySetInnerHTML={createMarkup(selectedTestimonial?.content)}></p>
           </div>
         </div>
       )}

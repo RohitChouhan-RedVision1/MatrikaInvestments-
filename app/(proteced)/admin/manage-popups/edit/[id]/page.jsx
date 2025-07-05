@@ -56,7 +56,7 @@ export function InputForm({ postId }) {
         setLoading(true);
         const formData = new FormData();
         formData.append('image', selectedImage);
-        formData.append('title', data.title);
+        formData.append('title', data?.title);
 
         try {
             let response;

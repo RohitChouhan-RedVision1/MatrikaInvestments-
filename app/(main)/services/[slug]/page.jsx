@@ -7,7 +7,7 @@ export default function ServicePage({ params }) {
   const { slug } = params;
  
 
-  const service = servicesdata.find((item) => item.slugUrl === slug);
+  const service = servicesdata.find((item) => item?.slugUrl === slug);
   return (
     <div className="">
           <RvBreadcrumbs 

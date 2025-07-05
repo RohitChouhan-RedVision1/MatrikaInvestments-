@@ -41,9 +41,9 @@ const filterDataByRange = (sipData) => {
 
 
     return sipData.map((item) => ({
-        date: item.navDate || new Date().toISOString(), // Use current date if navDate is not defined
-        amount: item.netAmount || 0, // Default to 0 if amount is undefined
-        currentvalue: item.currentValue || 0, // Default to 0 if currentValue is undefined
+        date: item?.navDate || new Date().toISOString(), // Use current date if navDate is not defined
+        amount: item?.netAmount || 0, // Default to 0 if amount is undefined
+        currentvalue: item?.currentValue || 0, // Default to 0 if currentValue is undefined
     }));
 };
 

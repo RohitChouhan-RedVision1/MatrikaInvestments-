@@ -60,10 +60,10 @@ const LoginPage = () => {
     setError("");
     try {
       const res = await axios.post("https://redvisionweb.com/api/login/arn-login", provider);
-      if (res.data.status === true) {
-        router.push(res.data.url);
+      if (res?.data?.status === true) {
+        router.push(res?.data?.url);
       } else {
-        setError(res.data.msg);
+        setError(res?.data?.msg);
       }
     } catch (error) {
       setError(error.message || "An error occurred");
