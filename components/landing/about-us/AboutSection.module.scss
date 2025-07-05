@@ -1,0 +1,159 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+.aboutUs {
+    background-color: #f9f9f9;
+    position: relative;
+    .aboutUsRow {
+        display: flex;
+        gap: 30px;
+        @include mediascreen(1024px) {
+            flex-wrap: wrap;
+        }
+        .aboutUsImages {
+            max-width: 50%;
+            width: 100%;
+            position: relative;
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+            .aboutImg2 {
+                .imageAnime {
+                    position: relative;
+                    overflow: hidden !important;
+                    height: 550px;
+                    display: block;
+                    img {
+                        height: 100%;
+                        object-fit: contain;
+                        width: 100%;
+                        object-position: left;
+                        filter: drop-shadow(2px 4px 6px #ddd);
+                    }
+                    &:hover {
+                        transition: .5s;
+                        // &::before {
+                        //     height: 250%;
+                        //     transition: .5s;
+                        //     transition: all .6s linear;
+                        //     background-color: transparent;
+                        // }
+                    }
+                    // &::before {
+                    //     content: "";
+                    //     position: absolute;
+                    //     width: 200%;
+                    //     height: 0;
+                    //     transition: .5s;
+                    //     left: 50%;
+                    //     top: 50%;
+                    //     background-color: hsla(0, 0%, 100%, .3);
+                    //     transform: translate(-50%, -50%) rotate(-45deg);
+                    //     z-index: 1;
+                    // }
+                }
+            }
+        }
+        .aboutContentBody {
+            max-width: 50%;
+            width: 100%;
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+            .rvacbCard {
+                .rvcncBody {
+                    transition: .5s;
+                    &:hover {
+                        transition: .5s;
+                        .rvcnccicone {
+                            transition: .5s;
+                            &::before {
+                                transition: .5s;
+                                transform: scale(1) rotate(45deg);
+                            }
+                        }
+                    }
+                    .rvcnccicone {
+                        background: var(--rv-secondary);
+                        margin-bottom: 20px;
+                        width: fit-content;
+                        padding: 5px;
+                        border-radius: 5px;
+                        transition: .5s;
+                        box-shadow: 0 0 15px 0 #999;
+                        position: relative;
+                        &::before {
+                            content: "";
+                            transition: .5s;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background-color: var(--rv-secondary);
+                            border-radius: 5px;
+                            height: 100%;
+                            width: 100%;
+                            transform: scale(0);
+                            transition: all .4s ease-in-out;
+                        }
+                        img {
+                            filter: drop-shadow(2px 4px 6px black);
+                        }
+                    }
+                    .rvcncccontent {
+                        .rvcncccTitle {
+                            color: var(--rv-primary);
+                        }
+                        .rvcncccCP {
+                            max-width: 300px;
+                        }
+                    }
+                    .rvcncccContect {
+                        margin-top: 20px;
+                        .rvcnccicone {
+                            margin-bottom: 0;
+                        }
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.contactCircle {
+    position: absolute;
+    top: 20px;
+    z-index: 99;
+    right: 80px;
+    animation: infiniterotate 30s infinite linear;
+}
+
+@keyframes infiniterotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.aboutInfoList ul li:before {
+    content: '\f058';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--accent-color);
+    display: inline-block;
+    line-height: normal;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}

@@ -1,0 +1,89 @@
+.rvsRow {
+  justify-content: space-between;
+  align-items: center;
+}
+.rvsRow .rvsCol {
+  max-width: calc(50% - 15px);
+  width: 100%;
+}
+
+.rvcinputgroup {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(var(--rv-primary-rgb)/0.15);
+  padding: 2px 10px;
+  max-width: 150px;
+  width: 100%;
+  border-radius: 3px;
+  padding-right: 0;
+}
+
+.rvcinput {
+  width: 100%;
+  text-align: right;
+  color: var(--rv-primary);
+  font-weight: 600;
+  background: rgba(0, 0, 0, 0);
+}
+
+.rvCard {
+  border: 1px solid #eee;
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.rvdatafinaltext li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+.rvdatafinaltext li:last-child {
+  border-bottom: unset;
+}
+
+.customslider {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 5px 0;
+  height: 10px;
+  outline: none;
+  position: relative;
+  border-radius: 16px;
+  /* Thumb: Firefox */
+}
+.customslider::-webkit-slider-runnable-track {
+  height: 8px;
+  background: transparent;
+  border-radius: 16px;
+}
+.customslider::-moz-range-track {
+  height: 8px;
+  background: transparent;
+  border-radius: 16px;
+}
+.customslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 14px;
+  width: 14px;
+  transform: translateY(-3px);
+  background-color: var(--rv-primary);
+  border-radius: 50%;
+  border: 2px solid var(--rv-white);
+  box-shadow: 0px 0 0 5px rgba(var(--rv-primary-rgb)/0.2);
+}
+.customslider::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  background-color: var(--rv-white);
+  transform: translateY(-3px);
+  border-radius: 50%;
+  border: 2px solid var(--rv-primary);
+  /*  slider progress trick  */
+}

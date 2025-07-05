@@ -1,0 +1,18 @@
+.sectionTitle {
+    padding-bottom: 30px;
+    .miniTitle {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .headingTitle {
+        font-size: 44px;
+        line-height: 55px;
+        color: var(--rv-primary);
+        padding-bottom: 20px;
+        span {
+            color: var(--rv-secondary);
+        }
+    }
+}

@@ -1,0 +1,137 @@
+.aboutUs {
+  background-color: #f9f9f9;
+  position: relative;
+}
+.aboutUs .aboutUsRow {
+  display: flex;
+  gap: 30px;
+}
+@media only screen and (max-width: 1024px) {
+  .aboutUs .aboutUsRow {
+    flex-wrap: wrap;
+  }
+}
+.aboutUs .aboutUsRow .aboutUsImages {
+  max-width: 50%;
+  width: 100%;
+  position: relative;
+}
+@media only screen and (max-width: 1024px) {
+  .aboutUs .aboutUsRow .aboutUsImages {
+    max-width: 100%;
+  }
+}
+.aboutUs .aboutUsRow .aboutUsImages .aboutImg2 .imageAnime {
+  position: relative;
+  overflow: hidden !important;
+  height: 550px;
+  display: block;
+}
+.aboutUs .aboutUsRow .aboutUsImages .aboutImg2 .imageAnime img {
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  -o-object-position: left;
+     object-position: left;
+  filter: drop-shadow(2px 4px 6px #ddd);
+}
+.aboutUs .aboutUsRow .aboutUsImages .aboutImg2 .imageAnime:hover {
+  transition: 0.5s;
+}
+.aboutUs .aboutUsRow .aboutContentBody {
+  max-width: 50%;
+  width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  .aboutUs .aboutUsRow .aboutContentBody {
+    max-width: 100%;
+  }
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody {
+  transition: 0.5s;
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody:hover {
+  transition: 0.5s;
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody:hover .rvcnccicone {
+  transition: 0.5s;
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody:hover .rvcnccicone::before {
+  transition: 0.5s;
+  transform: scale(1) rotate(45deg);
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcnccicone {
+  background: var(--rv-secondary);
+  margin-bottom: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 15px 0 #999;
+  position: relative;
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcnccicone::before {
+  content: "";
+  transition: 0.5s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--rv-secondary);
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  transform: scale(0);
+  transition: all 0.4s ease-in-out;
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcnccicone img {
+  filter: drop-shadow(2px 4px 6px black);
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcncccontent .rvcncccTitle {
+  color: var(--rv-primary);
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcncccontent .rvcncccCP {
+  max-width: 300px;
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcncccContect {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.aboutUs .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcncccContect .rvcnccicone {
+  margin-bottom: 0;
+}
+
+.contactCircle {
+  position: absolute;
+  top: 20px;
+  z-index: 99;
+  right: 80px;
+  animation: infiniterotate 30s infinite linear;
+}
+
+@keyframes infiniterotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.aboutInfoList ul li:before {
+  content: "\f058";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--accent-color);
+  display: inline-block;
+  line-height: normal;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}

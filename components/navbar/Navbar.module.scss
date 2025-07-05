@@ -1,0 +1,240 @@
+    @mixin mediascreen ($widthname, $widthpx) {
+        @media only screen and ($widthname: $widthpx) {
+            @content;
+        }
+    }
+    
+    .mainMenu .navMenuWrapper {
+        flex: 1;
+        text-align: center;
+        margin: 0 20px;
+        @include mediascreen(max-width, 1300px) {
+            text-align: right;
+        }
+    }
+    
+    .mainMenu .navMenuWrapper>ul {
+        align-items: center;
+        display: inline-flex;
+        @include mediascreen(max-width, 1300px) {
+            justify-content: end;
+        }
+    }
+    
+    .mainMenu ul li {
+        margin: 0;
+        position: relative;
+    }
+    
+    .mainMenu ul li a {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.3em;
+        padding: 15px 20px !important;
+        color: var(--rv-black);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 80%;
+        text-transform: capitalize;
+        transition: all 0.3s ease-in-out;
+        @include mediascreen(max-width, 1300px) {
+            padding: 15px 12px !important;
+        }
+    }
+    
+    .mainMenu ul li.submenu>a:after {
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-weight: 900;
+        font-size: 14px;
+        margin-left: 8px;
+    }
+    
+    .mainMenu ul li a:hover,
+    .mainMenu ul li a:focus {
+        color: var(--rv-secondary);
+        opacity: 100%;
+    }
+    
+    .mainMenu ul ul {
+        visibility: hidden;
+        opacity: 0;
+        transform: scaleY(0.8);
+        transform-origin: top;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 230px;
+        border-radius: 20px;
+        position: absolute;
+        left: 0;
+        z-index: 11;
+        top: 100%;
+        background-color: white;
+        color: var(--rv-black);
+        transition: all 0.3s ease-in-out;
+        text-align: left;
+        border: solid 1px var(--rv-secondary);
+    }
+    
+    .mainMenu ul li.submenu:first-child ul {
+        width: 230px;
+    }
+    
+    .mainMenu ul ul ul {
+        left: 100%;
+        top: 0;
+        text-align: left;
+    }
+    
+    .mainMenu ul li:hover>ul {
+        visibility: visible;
+        opacity: 1;
+        transform: scaleY(1);
+        padding: 5px 0;
+    }
+    
+    .mainMenu ul li.submenu ul li.submenu>a:after {
+        content: "\f105";
+        float: right;
+    }
+    
+    .mainMenu ul ul li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .mainMenu ul ul li a {
+        opacity: 100%;
+        padding: 6px 20px !important;
+        transition: all 0.3s ease-in-out;
+        color: var(--primary-color);
+    }
+    
+    .mainMenu ul ul li a:hover,
+    .mainMenu ul ul li a:focus {
+        color: var(--primary-color);
+        background-color: transparent;
+        padding: 6px 20px 6px 23px !important;
+    }
+    
+    .mainMenu ul li.highlightedMenu {
+        display: none;
+    }
+    
+    .navButton {
+        display: none;
+        border-radius: var(--rv-radius);
+        background-color: aquamarine;
+        padding: 20px;
+    }
+    
+    .rvNav {
+        border-bottom: 1px solid var(--rv-primary);
+        .rvhFlex {
+            display: flex;
+            align-items: center;
+            .sitelogo {
+                padding: 10px 0;
+                img {
+                    height: 80px;
+                    object-fit: contain;
+                    object-position: left;
+                }
+            }
+            .sitelogo {
+                max-width: 20%;
+                width: 100%;
+                @media only screen and (max-width: 1024px) {
+                    max-width: 40%;
+                }
+            }
+            .mainMenu {
+                max-width: 80%;
+                @media only screen and (max-width: 1024px) {
+                    max-width: 60%;
+                    .navMenuWrapper {
+                        display: none;
+                    }
+                }
+                width: 100%;
+            }
+        }
+    }
+    
+    .rvmmBtn {
+        display: none;
+    }
+    
+    @include mediascreen(max-width, 1024px) {
+        .rvmmBtn {
+            display: flex;
+            justify-content: end;
+        }
+        .rvmobilemenu {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            background-color: #00000082;
+            z-index: 11;
+            &.mobileActive {
+                .rvmobilemenuheader {
+                    transform: translateX(0px);
+                    transition: .5s;
+                }
+                .rvmmhnav {
+                    transform: translateX(0px);
+                    transition: .5s;
+                }
+            }
+            .rvmmhnav {
+                max-width: 300px;
+                width: 100%;
+                transform: translateX(-400px);
+                transition: .5s;
+                background-color: var(--rv-primary);
+                height: 100%;
+                top: 0;
+                padding: 20px;
+                position: absolute;
+                ul {
+                    li {
+                        color: var(--rv-white);
+                        padding: 10px 0;
+                        cursor: pointer;
+                        align-items: center;
+                        display: flex;
+                        justify-content: space-between;
+                        font-weight: 500;
+                        &.active {
+                            svg {
+                                transform: rotate(180deg);
+                            }
+                        }
+                        a {
+                            color: var(--rv-white);
+                            font-weight: 500;
+                        }
+                    }
+                    ul {
+                        padding-left: 10px;
+                        margin-bottom: 10px;
+                        li {
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
+            .rvmobilemenuheader {
+                position: absolute;
+                z-index: 11;
+                left: 310px;
+                transform: translateX(-400px);
+                transition: .5s;
+                top: 5px;
+            }
+        }
+    }

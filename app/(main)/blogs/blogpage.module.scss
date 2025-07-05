@@ -1,0 +1,88 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+.blogpageSection {
+    .blogpageRow {
+        justify-content: space-between;
+        .blogpageCol {
+            max-width: calc(50% - 15px);
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+.blogpDSection {
+    .blogpDRow {
+        justify-content: space-between;
+        .blogpDCol {
+            max-width: calc(65% - 15px);
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+        }
+        .blogpDRCol {
+            max-width: calc(35% - 15px);
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+        }
+        .blogpdccontent {
+            .blogpdcflex {
+                padding: 5px 0 15px;
+                display: flex;
+                font-size: 14px;
+                align-items: center;
+                color: var(--rv-black);
+                gap: 10px;
+                @include mediascreen(1024px) {
+                    flex-wrap: wrap;
+                }
+            }
+            p {
+                margin-top: 10px;
+            }
+        }
+    }
+    .followus {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+    }
+}
+
+.blogreletedcard {
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 15px 0 #ddd;
+    a {
+        display: block;
+        .blogreletedcardbody {
+            display: flex;
+            gap: 20px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        span {
+            font-weight: 600;
+            color: var(--rv-secondary);
+        }
+    }
+}

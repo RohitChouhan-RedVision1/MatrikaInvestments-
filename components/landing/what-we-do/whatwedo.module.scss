@@ -1,0 +1,78 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+@keyframes experienceObject {
+    50% {
+        left: 40px;
+    }
+}
+
+.experienceCounterBox {
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    color: var(--rv-primary);
+    border-left: 5px solid var(--rv-primary);
+    background: var(--rv-white);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 280px;
+    animation: experienceObject 3s infinite linear alternate;
+    overflow: hidden;
+}
+
+.whatwedo {
+    background: #f4f4f4;
+    .whatWeDoCRow {
+        justify-content: space-between;
+        @include mediascreen(1024px) {
+            flex-direction: column-reverse;
+        }
+        .whatWeDoCCol1 {
+            max-width: calc(50% - 15px);
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+            .whatWeDoList {
+                ul {
+                    display: flex;
+                    gap: 20px;
+                    padding-bottom: 30px;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    li {
+                        padding: 10px 0;
+                        display: flex;
+                        gap: 10px;
+                        max-width: calc(50% - 15px);
+                        @include mediascreen(575px) {
+                            max-width: 100%;
+                        }
+                        svg {
+                            // fill: var(--rv-primary);
+                            color: var(--rv-secondary);
+                        }
+                    }
+                }
+            }
+        }
+        .whatWeDoCCol2 {
+            max-width: calc(50% - 15px);
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+            .whatWeDoImages {
+                position: relative;
+                img {
+                    filter: drop-shadow(2px 4px 6px #ddd);
+                }
+            }
+        }
+    }
+}

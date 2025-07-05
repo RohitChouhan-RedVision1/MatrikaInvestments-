@@ -1,0 +1,76 @@
+@keyframes experienceObject {
+  50% {
+    left: 40px;
+  }
+}
+.experienceCounterBox {
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+  color: var(--rv-primary);
+  border-left: 5px solid var(--rv-primary);
+  background: var(--rv-white);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 280px;
+  animation: experienceObject 3s infinite linear alternate;
+  overflow: hidden;
+}
+
+.whatwedo {
+  background: #f4f4f4;
+}
+.whatwedo .whatWeDoCRow {
+  justify-content: space-between;
+}
+@media only screen and (max-width: 1024px) {
+  .whatwedo .whatWeDoCRow {
+    flex-direction: column-reverse;
+  }
+}
+.whatwedo .whatWeDoCRow .whatWeDoCCol1 {
+  max-width: calc(50% - 15px);
+}
+@media only screen and (max-width: 1024px) {
+  .whatwedo .whatWeDoCRow .whatWeDoCCol1 {
+    max-width: 100%;
+  }
+}
+.whatwedo .whatWeDoCRow .whatWeDoCCol1 .whatWeDoList ul {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.whatwedo .whatWeDoCRow .whatWeDoCCol1 .whatWeDoList ul li {
+  padding: 10px 0;
+  display: flex;
+  gap: 10px;
+  max-width: calc(50% - 15px);
+}
+@media only screen and (max-width: 575px) {
+  .whatwedo .whatWeDoCRow .whatWeDoCCol1 .whatWeDoList ul li {
+    max-width: 100%;
+  }
+}
+.whatwedo .whatWeDoCRow .whatWeDoCCol1 .whatWeDoList ul li svg {
+  color: var(--rv-secondary);
+}
+.whatwedo .whatWeDoCRow .whatWeDoCCol2 {
+  max-width: calc(50% - 15px);
+}
+@media only screen and (max-width: 1024px) {
+  .whatwedo .whatWeDoCRow .whatWeDoCCol2 {
+    max-width: 100%;
+  }
+}
+.whatwedo .whatWeDoCRow .whatWeDoCCol2 .whatWeDoImages {
+  position: relative;
+}
+.whatwedo .whatWeDoCRow .whatWeDoCCol2 .whatWeDoImages img {
+  filter: drop-shadow(2px 4px 6px #ddd);
+}

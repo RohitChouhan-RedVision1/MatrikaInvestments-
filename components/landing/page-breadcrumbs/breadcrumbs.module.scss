@@ -1,0 +1,43 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+.breadcrumbsTitle {
+    background-color: var(--rv-primary);
+    padding: 10px 0;
+    .breadcrumbList {
+        display: flex;
+        gap: 30px;
+        @include mediascreen(767px) {
+            flex-wrap: wrap;
+            gap: 10px 30px;
+        }
+        li {
+            color: var(--rv-white);
+            position: relative;
+            font-weight: 400;
+            &:first-child {
+                &::before {
+                    content: unset;
+                }
+            }
+            &::before {
+                content: '';
+                width: 2px;
+                position: absolute;
+                left: -15px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: .5;
+                background-color: var(--rv-white);
+                height: 70%;
+            }
+            a {
+                color: var(--rv-white);
+                font-weight: 600;
+            }
+        }
+    }
+}

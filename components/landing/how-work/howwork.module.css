@@ -1,0 +1,106 @@
+.howitWork .howitworkRow {
+  justify-content: space-between;
+}
+.howitWork .howitworkRow .howitworkCol1 {
+  max-width: calc(50% - 15px);
+}
+@media only screen and (max-width: 1024px) {
+  .howitWork .howitworkRow .howitworkCol1 {
+    max-width: 100%;
+  }
+}
+.howitWork .howitworkRow .howitworkCol1 .howitwshadding {
+  position: sticky;
+  top: 150px;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems {
+  background-color: var(--secondary-color);
+  padding: 30px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 30px;
+  transition: 0.5s;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems:hover {
+  transition: 0.5s;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems:hover::before {
+  width: 100%;
+  height: 100%;
+  transform: translateY(0);
+  transition: 0.5s;
+  opacity: 1;
+  border-radius: 0;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems:hover .workStepsContent {
+  transition: 0.5s;
+  transition: 0.5s;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems:hover .workStepsContent h5 {
+  transition: 0.5s;
+  color: var(--rv-white);
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems:hover .workStepsContent p {
+  transition: 0.5s;
+  color: var(--rv-white);
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems:hover .workStepsNo h2 {
+  -webkit-text-stroke-width: 1px;
+  stroke: var(--rv-white);
+  -webkit-text-stroke-color: var(--rv-white);
+  opacity: 70%;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems::before {
+  content: "";
+  width: 10px;
+  border-radius: 50%;
+  position: absolute;
+  transition: 0.5s;
+  left: 0;
+  top: 0;
+  transform: translateY(-100%);
+  opacity: 0;
+  background: var(--rv-primary);
+  height: 10px;
+  margin: auto;
+  z-index: 0;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems .workStepsContent {
+  position: relative;
+  z-index: 1;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems .workStepsContent h6 {
+  transition: 0.5s;
+  color: var(--rv-secondary);
+  text-transform: uppercase;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems .workStepsContent p {
+  transition: 0.5s;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems .workStepsContent h5 {
+  transition: 0.5s;
+  margin-bottom: 10px;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems .workStepsNo {
+  position: relative;
+  transition: 0.5s;
+  margin-bottom: -35px;
+  z-index: 9;
+}
+.howitWork .howitworkRow .howitworkCol1 .workStepsBox .workStepsItems .workStepsNo h2 {
+  font-size: 100px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  position: relative;
+  z-index: 1;
+  text-align: right;
+  color: transparent;
+  stroke-width: 10px;
+  transition: 0.5s;
+  -webkit-text-stroke-width: 1px;
+  stroke: var(--text-color);
+  -webkit-text-stroke-color: var(--text-color);
+  opacity: 15%;
+  transition: all 0.4s ease-in-out;
+}

@@ -1,0 +1,81 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+.ourBlog {
+    .ourBloghRow {
+        justify-content: space-between;
+        @include mediascreen(992px) {
+            gap: 0;
+            margin-bottom: 30px;
+        }
+        .ourBloghCol {
+            max-width: calc(50% - 15px);
+            @include mediascreen(992px) {
+                max-width: 100%;
+                text-align: left;
+            }
+        }
+        .ourBloghCol1 {
+            max-width: calc(50% - 15px);
+            @include mediascreen(992px) {
+                max-width: 100%;
+            }
+            .sectionbtn {
+                display: flex;
+                justify-content: end;
+                @include mediascreen(992px) {
+                    justify-content: start;
+                }
+            }
+        }
+    }
+    .ourBlogsRow {
+        justify-content: space-between;
+        .ourBlogsCol {
+            max-width: calc(50% - 15px);
+            @include mediascreen(992px) {
+                max-width: 100%;
+            }
+            .postItem {
+                a {
+                    display: flex;
+                    gap: 15px;
+                    @include mediascreen(575px) {
+                        flex-wrap: wrap;
+                    }
+                    .postFeaturedImage {
+                        img {
+                            max-width: 250px;
+                            border-radius: 10px;
+                            @include mediascreen(575px) {
+                                max-width: 100%;
+                            }
+                        }
+                    }
+                    .postItemMeta {
+                        ul {
+                            display: flex;
+                            gap: 10px;
+                            li {
+                                font-size: 14px;
+                                color: var(--rv-secondary);
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                    h5 {
+                        line-height: 30px;
+                    }
+                    .readmoreBtn {
+                        text-transform: capitalize;
+                        font-weight: 600;
+                        color: var(--rv-secondary);
+                    }
+                }
+            }
+        }
+    }
+}

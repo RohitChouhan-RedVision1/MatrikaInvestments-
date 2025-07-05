@@ -1,0 +1,108 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+.loginsection {
+    .loginCard {
+        border-radius: 10px;
+        box-shadow: 0 0 15px 0 #ddd;
+        background: var(--rv-primary);
+        overflow: hidden;
+        .loginRow {
+            justify-content: space-between;
+            .loginCol {
+                max-width: calc(50% - 15px);
+                @include mediascreen(1024px) {
+                    max-width: 100%;
+                }
+            }
+            .loginleft {
+                color: var(--rv-white);
+                padding: 30px;
+                h3 {
+                    color: var(--rv-white);
+                }
+                .loginhadding {
+                    max-width: 400px;
+                    width: 100%;
+                    @include mediascreen(1024px) {
+                        max-width: 100%;
+                        text-align: center;
+                    }
+                }
+                img {
+                    border-radius: 10px;
+                    height: 150px;
+                    object-fit: cover;
+                }
+            }
+        }
+        .loginrightCard {
+            position: relative;
+            height: 100%;
+            padding: 25px;
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+            }
+            .loginrightCardbody {
+                position: absolute;
+                @include mediascreen(1024px) {
+                    position: relative;
+                }
+                left: 0;
+                max-width: 350px;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                height: max-content;
+                padding: 20px;
+                box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.4392156863);
+                border-radius: 10px;
+                background: #ffffffb8;
+                input,
+                select {
+                    margin-top: 15px;
+                    width: 100%;
+                    padding: 10px 15px;
+                    height: 40px;
+                    border: 1px solid #bbb;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    background: var(--rv-white);
+                }
+            }
+            .ForgotPasswordM {
+                font-size: 14px;
+                text-align: right;
+                font-weight: 600;
+                display: block;
+                margin-top: 10px;
+            }
+            .forgotPasswordeye {
+                position: relative;
+                span {
+                    position: absolute;
+                    right: 10px;
+                    top: 23px;
+                    cursor: pointer;
+                    height: 25px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+            .btnlogin {
+                width: 100%;
+                max-width: 100%;
+                margin-top: 10px;
+            }
+        }
+    }
+}

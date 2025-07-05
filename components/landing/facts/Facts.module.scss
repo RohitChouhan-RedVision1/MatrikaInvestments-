@@ -1,0 +1,99 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+.factCounter {
+    .factCounterImage {
+        position: relative;
+    }
+    .factCounterRow {
+        justify-content: space-between;
+        .factCounterBoxList {
+            gap: 20px;
+        }
+        .factCounterCol1 {
+            max-width: calc(50% - 30px);
+            @include mediascreen(1024px) {
+                max-width: calc(100%);
+            }
+            .factCounterBox {
+                max-width: calc(33.3% - 15px);
+                @include mediascreen(575px) {
+                    max-width: calc(100%);
+                }
+                position: relative;
+                transition: .5s;
+                .factCounterBoxContent {
+                    h2 {
+                        color: var(--rv-primary);
+                    }
+                }
+                &:hover {
+                    transition: .5s;
+                    transform: translateY(-10px);
+                    .iconBox {
+                        &::before {
+                            transition: 0.5s;
+                            transform: scale(1) rotate(45deg);
+                        }
+                    }
+                }
+                .iconBox {
+                    transition: .5s;
+                    background: var(--rv-secondary);
+                    margin-bottom: 20px;
+                    width: -moz-fit-content;
+                    width: fit-content;
+                    padding: 8px;
+                    max-width: 60px;
+                    height: 60px;
+                    position: relative;
+                    border-radius: 5px;
+                    transition: 0.5s;
+                    // box-shadow: 0 0 15px 0 #999;
+                    img {
+                        width: 100%;
+                        height: 45px;
+                        object-fit: contain;
+                        position: relative;
+                        filter: drop-shadow(2px 4px 6px black);
+                        z-index: 11;
+                    }
+                    position: relative;
+                    &::before {
+                        content: "";
+                        transition: 0.5s;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        background-color: var(--rv-secondary);
+                        border-radius: 5px;
+                        height: 100%;
+                        width: 100%;
+                        transform: scale(0);
+                        transition: all 0.4s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+    .factCounterList {
+        padding-top: 30px;
+        ul {
+            border-top: 1px solid var(--rv-secondary);
+            padding-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            @include mediascreen(575px) {}
+            li {
+                display: flex;
+                gap: 10px;
+            }
+        }
+    }
+}
