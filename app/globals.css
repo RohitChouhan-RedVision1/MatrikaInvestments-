@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 /* background: linear-gradient(0, #0f3d4f 5%, #0f3d4f 14%, transparent 137%); */
+
 @layer base {
   :root {
     --background: 0 0% 100%;
