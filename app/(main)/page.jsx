@@ -1,7 +1,4 @@
 
-
-import Homepage from "@/components/landing/hero-section/heroSection";
-
 import AboutUs from "@/components/landing/about-us/aboutus";
 
 import Tickers from "@/components/landing/tickers/tickers";
@@ -18,6 +15,7 @@ import WhatWeDo from "@/components/landing/what-we-do/whatwedo";
 import HowWork from "@/components/landing/how-work/howwork";
 
 import {getSiteData} from "@/lib/functions";
+import HeroSection from "@/components/landing/hero-section/heroSection";
 
 
 
@@ -33,7 +31,7 @@ export default async function Page({ children }) {
                 <Tickers />
 
 
-                <Homepage siteData={siteData} />
+                <HeroSection siteData={siteData} />
                 <AboutUs />
                 <OurServices />
                 <WhyChouseUs />
