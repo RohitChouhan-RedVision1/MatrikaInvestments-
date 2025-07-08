@@ -216,7 +216,7 @@ const iconMap = {
                     <div className={styles.footerCopyrightText}>
                         <div className="">
                         <p>{new Date().getFullYear()} © <b>{siteData?.websiteName}</b>. All rights reserved.</p>
-                        <p><Link target="_blank" href="https://www.redvisiontechnologies.com/" className=""><p>Designed & Developed by REDVision Global Technologies</p></Link></p>
+                        <p><Link target="_blank" href="https://www.redvisiontechnologies.com/" className=""> Designed & Developed by REDVision Global Technologies </Link></p>
 
                         </div>
                           <div className={styles.socialMediaicone}>

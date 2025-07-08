@@ -1,5 +1,5 @@
 "use client"
-import styles from './herosection.module.css';
+import styles from './heroSection.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
