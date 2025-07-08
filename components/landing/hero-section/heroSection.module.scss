@@ -1,0 +1,309 @@
+@mixin mediascreen ($widthpx) {
+    @media only screen and (max-width: $widthpx) {
+        @content;
+    }
+}
+
+.hero {
+    position: relative;
+    // background-color: var(--rv-primary);
+    background-image: linear-gradient(181deg, rgba(0, 202, 112, 1) 0%, rgba(3, 114, 58, 1) 100%);
+    &::before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        content: '';
+        background-image: url('/images/hero-bg.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+}
+
+.heroContentBody {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero.heroBgImage::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--rv-primary);
+    opacity: 60%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero.heroVideo .heroBgVideo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero.heroVideo .heroBgVideo video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heroContent {
+    position: relative;
+    margin-right: 30px;
+    z-index: 2;
+}
+
+.hero.heroBgImage .heroContent {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.heroContentBody {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.hero.heroBgImage .heroContent .heroContentBody {
+    justify-content: center;
+}
+
+.heroBtn {
+    display: flex;
+}
+
+.videoPlayButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.videoPlayButton a {
+    height: 50px;
+    width: 50px;
+    border: 2px solid var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: none;
+    margin-right: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.videoPlayButton:hover a {
+    border-color: var(--rv-secondary);
+}
+
+.videoPlayButton img {
+    max-width: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.videoPlayButton:hover a img {
+    filter: brightness(0) invert(0);
+}
+
+.videoPlayButton p {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: var(--white-color);
+    margin: 0;
+}
+
+.heroContentFooter {
+    margin-top: 40px;
+}
+
+.heroContentFooter h2 {
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--white-color);
+    margin-bottom: 30px;
+}
+
+.heroClientSlider .clientLogo {
+    text-align: center;
+}
+
+.heroClientSlider .clientLogo img {
+    width: 100%;
+    max-height: 100px;
+    opacity: 70%;
+    transition: all 0.4s ease-in-out;
+    border-radius: var(--rv-radius);
+}
+
+.heroClientSlider .clientLogo img:hover {
+    opacity: 100%;
+}
+
+@keyframes experienceObject {
+    50% {
+        left: 40px;
+    }
+}
+
+.companyExperience {
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    background-color: var(--rv-secondary);
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    width: 280px;
+    animation: experienceObject 3s infinite linear alternate;
+    overflow: hidden;
+}
+
+.companyExperience:hover {
+    color: var(--rv-primary);
+}
+
+.companyExperience::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--rv-third);
+    z-index: 0;
+    transition: all 0.4s ease-in-out;
+}
+
+.companyExperience:hover::before {
+    top: 0;
+}
+
+.companyExperience h3 {
+    position: relative;
+    width: 35%;
+    font-size: 46px;
+    margin-right: 15px;
+    z-index: 1;
+}
+
+.companyExperience p {
+    position: relative;
+    width: 65%;
+    text-align: left;
+    margin: 0;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 991px) {
+    .companyExperience {
+        display: none;
+    }
+    .heroContent {
+        position: relative;
+        margin-right: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.heroRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    @include mediascreen(1024px) {
+        flex-direction: column-reverse;
+    }
+    .rvhrContent {
+        max-width: 60%;
+        width: 100%;
+        @include mediascreen(1024px) {
+            max-width: 100%;
+            text-align: center;
+            .heroContentBody {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    }
+    .heroContent {
+        width: 100%;
+        color: var(--rv-white);
+        max-width: 600px;
+        @include mediascreen(1024px) {
+            max-width: 100%;
+        }
+        h1 {
+            padding: 20px 0;
+            font-size: 60px;
+            line-height: 70px;
+            @include mediascreen(1200px) {
+                font-size: 50px;
+                line-height: 60px;
+            }
+            @include mediascreen(1200px) {
+                font-size: 32px;
+                line-height: 40px;
+            }
+            span {
+                color: var(--rv-secondary);
+                font-weight: 700;
+            }
+        }
+        p {
+            margin-bottom: 20px;
+        }
+    }
+    .rvhrImage {
+        max-width: 40%;
+        width: 100%;
+        height: 100%;
+        @include mediascreen(1024px) {
+            position: relative;
+            max-width: 100%;
+        }
+        .heroImage {
+            position: absolute;
+            bottom: 0;
+            height: 100%;
+            max-height: 680px;
+            @include mediascreen(1024px) {
+                position: unset;
+            }
+            .heroImg {
+                height: 100%;
+                img {
+                    height: 100%;
+                    object-fit: contain;
+                    object-position: bottom;
+                    @include mediascreen(1024px) {
+                        position: unset;
+                        max-height: 480px;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+}
