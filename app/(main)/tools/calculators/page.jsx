@@ -70,7 +70,7 @@ export default function Page() {
                   href={"/tools/calculators?tab=calculator"}
                   className={`px-5 md:px-20 py-2 text-lg font-medium border border-[var(--rv-primary)] hover:bg-[var(--rv-primary)] hover:text-white rounded-l-full transition-all duration-300 ${isMonthlySip
                       ? "bg-[var(--rv-primary)] text-white"
-                      : "bg-[var(--rv-secondary)] text-[var(--rv-primary)]"
+                      : "bg-[var(--rv-white)] text-[var(--rv-primary)]"
                     }`}
                 >
                   Calculators
@@ -79,7 +79,7 @@ export default function Page() {
                   href={"/tools/calculators?tab=performance"}
                   className={`px-5 md:px-20 py-2 text-lg hover:bg-[var(--rv-primary)] hover:text-white font-medium border border-[var(--rv-primary)] rounded-r-full transition-all duration-300 ${!isMonthlySip
                       ? "bg-[var(--rv-primary)] text-white"
-                      : "bg-[var(--rv-secondary)] text-[var(--rv-primary)]"
+                      : "bg-[var(--rv-white)] text-[var(--rv-primary)]"
                     }`}
                 >
                   Performance

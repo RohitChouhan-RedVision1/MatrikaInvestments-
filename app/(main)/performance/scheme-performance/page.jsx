@@ -241,16 +241,16 @@ export default function Page() {
                             <div className="flex space-x-4 mb-8">
                                 <Button
                                     onClick={() => (setIsMonthlyScheme(true), setSchemesData([]), setGraphData(false), setSelectedAcms([]))}
-                                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${isMonthlyScheme ? "bg-[var(--rv-primary)] text-[var(--rv-secondary)]"
-                                        : "bg-[var(--rv-secondary)] text-black border"
+                                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${isMonthlyScheme ? "bg-[var(--rv-primary)] text-[var(--rv-white)]"
+                                        : "bg-[var(--rv-primary-light)] text-black border"
                                         }`}
                                 >
                                     Fund House
                                 </Button>
                                 <Button
                                     onClick={() => (setIsMonthlyScheme(false), setSchemesData([]), setGraphData(false), setSelectedAssets(new Set()))}
-                                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${!isMonthlyScheme ? "bg-[var(--rv-primary)] text-[var(--rv-secondary)]"
-                                        : "bg-[var(--rv-secondary)] text-black border"
+                                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${!isMonthlyScheme ? "bg-[var(--rv-primary)] text-[var(--rv-white)]"
+                                        : "bg-[var(--rv-primary-light)] text-black border"
                                         }`}
                                 >
                                     Asset Category
@@ -508,7 +508,7 @@ export default function Page() {
                                     <label htmlFor="sensex" className="text-sm block font-semibold text-gray-700 mb-1 ml-1 mr-5">SENSEX</label>
                                 </div>
                             </div>
-                            <Button className="bg-[var(--rv-primary)] hover:text-black text-[var(--rv-secondary)] disabled:opacity-50 hover:bg-[var(--rv-secondary)]" onClick={() => handleSubmit()}>Show</Button>
+                            <Button className="bg-[var(--rv-primary)] hover:text-black text-[var(--rv-white)] disabled:opacity-50 hover:bg-[var(--rv-secondary)]" onClick={() => handleSubmit()}>Show</Button>
                         </div>
                     </div>
                     <div className='col-span-1'>

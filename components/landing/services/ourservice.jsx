@@ -54,7 +54,7 @@ export default function OurServices() {
                       </div>
                       <div className={styles.serviceItemContent}>
                         <h3>{item?.title}</h3>
-                        <p className="line-clamp-5">{item?.shortDescription.slice(0, 150)}...</p>
+                        <p className="line-clamp-5 text-line" style={{'--textline':4}}>{item?.shortDescription}</p>
                         <span className={styles.serviceBtn}>
                           <img src="/images/arrow-white.svg" alt="Arrow icon" />
                         </span>

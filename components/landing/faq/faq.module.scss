@@ -18,8 +18,9 @@
             .ourFaqsImage {
                 img {
                     width: 100%;
-                    height: 100%;
-                    object-fit: contain;
+                    height: 500px;
+                    object-position: left;
+                    object-fit: cover;
                 }
             }
             .ourFaqsContent {

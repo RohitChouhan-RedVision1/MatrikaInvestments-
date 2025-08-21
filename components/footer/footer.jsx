@@ -238,6 +238,17 @@ const iconMap = {
 
                   
                 </div>
+
+                <div className={`btn btn-primary bookAppointment ${styles.bookAppointment}`}>
+                     <Image
+                                src={"/images/bookapoiment.svg"}
+                                alt="logo"
+                                width={30}
+                                height={30}
+                                className="mr-4"
+                            />
+                    <Link  className="" href='/book-appointment'>Book an Appointment</Link>
+                </div>
             </div>
         </footer>
     )

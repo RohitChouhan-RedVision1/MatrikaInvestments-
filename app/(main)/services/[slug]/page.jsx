@@ -17,24 +17,24 @@ export default function ServicePage({ params }) {
       
         <div className="container">
           <h1 className={styles.rvsptitle}>{service.fullTitle}</h1>
-          <div className={`${styles.rvspcontent}`}>
-            
-          <div dangerouslySetInnerHTML={{ __html: service.description }} />
-          </div>
-        </div>
-      </div>
-      <div className={`${styles.calltoacton} section`}>
-        <div className="container">
-          <div className={`${styles.rvcard}`}>
-          <div className="">{service.getInTouchDescription}</div>
-          <div className={`${styles.rvcardBody}`}>
+       <div className={`${styles.rvcardBody} mb-10 justify-center`}>
           <Link href={service.getInTouchButtonLink} className="btn btn-primary">
             {service.getInTouchButton}
           </Link>
           </div>
+          <div className={`${styles.rvspcontent}`}>
+            
+          <div dangerouslySetInnerHTML={{ __html: service.description }} />
+          </div>
+           <div className="">{service.getInTouchDescription}</div>
+          <div className={`${styles.rvcardBody} mt-5 mb-5 justify-start`}>
+            <Link href={service.getInTouchButtonLink} className="btn btn-primary">
+              {service.getInTouchButton}
+            </Link>
           </div>
         </div>
       </div>
+     
     </div>
   );
 }

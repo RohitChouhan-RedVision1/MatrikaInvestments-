@@ -287,7 +287,7 @@ footer.mainFooter {
         img {
             height: 100px;
             object-fit: contain;
-            filter: brightness(0) invert(1);
+            // filter: brightness(0) invert(1);
         }
         p {
             color: var(--white-color);
@@ -395,5 +395,20 @@ footer.mainFooter {
                 }
             }
         }
+    }
+}
+
+.bookAppointment {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%) translateX(210px);
+    right: 0;
+    transition: .5s;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 #bbb;
+    padding-left: 10px;
+    &:hover {
+        transition: .5s;
+        transform: translateY(-50%) translateX(0px);
     }
 }

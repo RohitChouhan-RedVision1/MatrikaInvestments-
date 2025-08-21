@@ -7,6 +7,11 @@
 .factCounter {
     .factCounterImage {
         position: relative;
+        img {
+            height: 450px;
+            object-fit: cover;
+            object-position: left;
+        }
     }
     .factCounterRow {
         justify-content: space-between;

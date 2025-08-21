@@ -116,7 +116,10 @@
 .serviceItemContent h3 {
     font-size: 20px;
     font-weight: 600;
+    line-height: 23px;
     text-transform: capitalize;
+    min-height: 44px;
+    align-content: center;
     color: var(--rv-primary);
     margin-bottom: 15px;
     transition: all 0.4s ease-in-out;

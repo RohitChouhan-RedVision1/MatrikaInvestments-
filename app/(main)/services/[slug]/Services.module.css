@@ -20,20 +20,7 @@
   background: var(--rv-secondary);
 }
 
-.calltoacton {
-  text-align: center;
-  padding-top: 0;
-}
-.calltoacton .rvcard {
-  text-align: center;
-  box-shadow: 0 0 15px 0 #ddd;
-  background: var(--rv-secondary);
-  padding: 35px;
-  border-radius: 20px;
-  color: var(--rv-white);
-}
-.calltoacton .rvcard .rvcardBody {
+.rvcardBody {
   display: flex;
-  justify-content: center;
   margin-top: 30px;
 }

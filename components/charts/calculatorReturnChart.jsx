@@ -23,7 +23,7 @@ export const description = "A stacked bar chart with a legend";
 const chartConfig = {
     investedAmount: {
         label: "Invested Amount",
-        color: "var(--rv-primary)",
+        color: "var(--rv-primary-light)",
     },
     growth: {
         label: "Growth",
@@ -63,7 +63,7 @@ export function CalculatorReturnChart({ data, title }) {
                         <Bar
                             dataKey="growth"
                             stackId="a"
-                            fill="var(--rv-secondary)"
+                            fill="var(--rv-primary-light)"
                             radius={[4, 4, 0, 0]}
                         />
                     </BarChart>

@@ -304,16 +304,16 @@ export default function Page() {
                             <div className="flex space-x-4 mb-8">
                                 <Button
                                     onClick={() => (setIsMonthlySip(true), setSchemesData([]), setGraphData(false), setSelectedAcms([]))}
-                                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${isMonthlySip ? "bg-[var(--rv-primary)] text-[var(--rv-secondary)]"
-                                        : "bg-[var(--rv-secondary)] text-black border"
+                                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${isMonthlySip ? "bg-[var(--rv-primary)] text-[var(--rv-white)]"
+                                        : "bg-[var(--rv-primary-light)] text-black border"
                                         }`}
                                 >
                                     Fund House
                                 </Button>
                                 <Button
                                     onClick={() => (setIsMonthlySip(false), setSchemesData([]), setGraphData(false), setSelectedAssets(new Set()))}
-                                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${!isMonthlySip ? "bg-[var(--rv-primary)] text-[var(--rv-secondary)]"
-                                        : "bg-[var(--rv-secondary)] text-black border"
+                                    className={`text-sm rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${!isMonthlySip ? "bg-[var(--rv-primary)] text-[var(--rv-white)]"
+                                        : "bg-[var(--rv-primary-light)] text-black border"
                                         }`}
                                 >
                                     Asset Category

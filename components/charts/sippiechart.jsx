@@ -35,7 +35,7 @@ export function SippieChart({ piedata, title, customLabels }) {
         {
             browser: "invested",
             visitors: piedata?.totalInvestment,
-            fill: "var(--rv-primary)",
+            fill: "var(--rv-primary-light)",
         },
         {
             browser: "return",
@@ -75,7 +75,7 @@ export function SippieChart({ piedata, title, customLabels }) {
                                     y={props.y}
                                     textAnchor={props.textAnchor}
                                     dominantBaseline={props.dominantBaseline}
-                                    fill="var(--rv-primary)"
+                                    fill="var(--rv-black)"
                                 >
                                     {`${labels[payload.browser]} (${payload.visitors})`}
                                 </text>

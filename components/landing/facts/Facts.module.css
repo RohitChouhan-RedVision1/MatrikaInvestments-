@@ -1,6 +1,13 @@
 .factCounter .factCounterImage {
   position: relative;
 }
+.factCounter .factCounterImage img {
+  height: 450px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: left;
+     object-position: left;
+}
 .factCounter .factCounterRow {
   justify-content: space-between;
 }

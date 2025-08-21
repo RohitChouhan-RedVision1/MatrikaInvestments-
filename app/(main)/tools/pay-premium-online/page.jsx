@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Breadcrumb, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbItem, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import Banner from "@/components/section-banner/banner";
@@ -13,7 +13,9 @@ export default function PayPremium() {
     const handleCategoryClick = (category) => {
         setSelectedCategory(category);
     };
-
+  useEffect(() => {
+    handleCategoryClick("gi");
+  }, []);
     const fiimagedata = [
         {
             image: "/lifeinsurancelogo/1.webp",
@@ -92,15 +94,15 @@ export default function PayPremium() {
             {/* <Banner title={"Pay Premium Online"} /> */}
             <div className="section">
             <section className="container">
-                <div className='md:px-5 py-4 bg-[var(--rv-secondary)] text-black flex items-center gap-x-2 md:gap-x-10  rounded'>
-                    <div className='cursor-pointer' onClick={() => handleCategoryClick('gi')}>
-                        <p className={`uppercase font-semibold hover:text-[--rv-primary] ${selectedCategory === 'gi' ? 'text-[var(--rv-primary)]' : ''}`}>General Insurance</p>
+                <div className='  bg-[var(--rv-white)] text-black flex items-center gap-x-2 md:gap-x-10  rounded border border-[var(--rv-primary)] '>
+                    <div className='cursor-pointer' onClick={() => handleCategoryClick('gi')} >
+                        <p className={`uppercase font-semibold md:px-5 py-4  hover:text-[--rv-primary] ${selectedCategory === 'gi' ? 'text-[var(--rv-white)] bg-[var(--rv-primary)] border border-[var(--rv-primary)] hover:text-[--rv-white] ' : ''}`}>General Insurance</p>
                     </div>
                     <div className='cursor-pointer' onClick={() => handleCategoryClick('li')}>
-                        <p className={`uppercase font-semibold hover:text-[--rv-primary] ${selectedCategory === 'li' ? 'text-[var(--rv-primary)]' : ''}`}>Life Insurance</p>
+                        <p className={`uppercase font-semibold md:px-5 py-4 hover:text-[--rv-primary] ${selectedCategory === 'li' ? 'text-[var(--rv-white)] bg-[var(--rv-primary)] border border-[var(--rv-primary)] hover:text-[--rv-white]' : ''}`}>Life Insurance</p>
                     </div>
                     <div className='cursor-pointer' onClick={() => handleCategoryClick('hi')}>
-                        <p className={`uppercase font-semibold hover:text-[--rv-primary] ${selectedCategory === 'hi' ? 'text-[var(--rv-primary)]' : ''}`}>Health Insurance</p>
+                        <p className={`uppercase font-semibold md:px-5 py-4 hover:text-[--rv-primary] ${selectedCategory === 'hi' ? 'text-[var(--rv-white)] bg-[var(--rv-primary)] border border-[var(--rv-primary)] hover:text-[--rv-white]' : ''}`}>Health Insurance</p>
                     </div>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-x-3 my-5">

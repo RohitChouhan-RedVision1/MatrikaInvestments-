@@ -7,7 +7,7 @@
 .hero {
     position: relative;
     // background-color: var(--rv-primary);
-    background-image: linear-gradient(181deg, rgba(0, 202, 112, 1) 0%, rgba(3, 114, 58, 1) 100%);
+    background-image: linear-gradient(181deg, rgb(0 202 112 / 5%) 0%, rgb(3 114 58 / 15%) 100%);
     &::before {
         position: absolute;
         width: 100%;
@@ -136,7 +136,7 @@
     font-size: 20px;
     font-weight: 600;
     text-transform: capitalize;
-    color: var(--white-color);
+    color: var(--rv-bleck);
     margin-bottom: 30px;
 }
 
@@ -249,7 +249,7 @@
     }
     .heroContent {
         width: 100%;
-        color: var(--rv-white);
+        color: var(--rv-bleck);
         max-width: 600px;
         @include mediascreen(1024px) {
             max-width: 100%;

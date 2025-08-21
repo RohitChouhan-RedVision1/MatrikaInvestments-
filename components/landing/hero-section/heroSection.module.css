@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  background-image: linear-gradient(181deg, rgb(0, 202, 112) 0%, rgb(3, 114, 58) 100%);
+  background-image: linear-gradient(181deg, rgba(0, 202, 112, 0.05) 0%, rgba(3, 114, 58, 0.15) 100%);
 }
 .hero::before {
   position: absolute;
@@ -130,7 +130,7 @@
   font-size: 20px;
   font-weight: 600;
   text-transform: capitalize;
-  color: var(--white-color);
+  color: var(--rv-bleck);
   margin-bottom: 30px;
 }
 
@@ -246,7 +246,7 @@
 }
 .heroRow .heroContent {
   width: 100%;
-  color: var(--rv-white);
+  color: var(--rv-bleck);
   max-width: 600px;
 }
 @media only screen and (max-width: 1024px) {

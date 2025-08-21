@@ -30,7 +30,7 @@ export default function HeroSection( {siteData}) {
                             </div>
                             <div className={styles.heroContentBody} data-aos="fade-up" data-aos-anchor-placement="bottom" >
                                 <div className={styles.heroBtn}>
-                                    <Link href="/contact" className="btn btn-secondary">Get Started</Link>
+                                    <Link href="/contact-us" className="btn btn-secondary">Get Started</Link>
                                 </div>
                                 {/* <div className={styles.heroIntroductionVideo}>
                                         <div className={styles.videoPlayButton}>

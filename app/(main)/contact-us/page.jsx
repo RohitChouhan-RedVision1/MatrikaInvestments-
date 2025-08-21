@@ -80,7 +80,7 @@ export default async function ContactUs() {
               <div className={`${styles.contactInfoCard}`}>
 
                   <Image
-                    src="/images/address.webp"
+                    src="/images/office-address.webp"
                     alt="Location Info"
                     width={500}
                     height={300}

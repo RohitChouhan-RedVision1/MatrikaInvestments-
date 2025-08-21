@@ -1,0 +1,185 @@
+    @mixin mediascreen ($widthpx) {
+        @media only screen and (max-width: $widthpx) {
+            @content;
+        }
+    }
+    
+    .AppoinmentFormSection {
+        max-width: 767px;
+        margin: 0 auto;
+        width: 100%;
+    }
+    
+    .pageContactUs {
+        .contactInfoRow {
+            justify-content: space-between;
+            row-gap: 0;
+            @include mediascreen(1024px) {
+                row-gap: 30px;
+            }
+        }
+        .contactInfoItem {
+            max-width: calc(33.3% - 20px);
+            width: 100%;
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+            .contactInfoCard {
+                border-radius: 10px;
+                height: 100%;
+                overflow: hidden;
+                box-shadow: 0 0 15px 0 #ddd;
+                &:hover {
+                    transition: .5s;
+                    .contactInfoBody {
+                        transition: .5s;
+                        .iconBox {
+                            transition: .5s;
+                            &::before {
+                                transition: .5s;
+                                transform: scale(1) rotate(45deg);
+                            }
+                        }
+                    }
+                }
+                img {
+                    width: 100%;
+                }
+                @include mediascreen(1024px) {
+                    display: flex;
+                    img {
+                        max-width: 320px;
+                        width: 100%;
+                    }
+                }
+                @include mediascreen(767px) {
+                    display: block;
+                    img {
+                        max-width: 100%;
+                        width: 100%;
+                    }
+                }
+                a {
+                    transition: .5s;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                }
+                .contactInfoBody {
+                    padding: 15px;
+                    position: relative;
+                    height: 100%;
+                    transition: .5s;
+                    .contactInfoContent {
+                        transition: .5s;
+                        padding-top: 40px;
+                        height: 100%;
+                        text-align: center;
+                        h5 {
+                            text-transform: capitalize;
+                        }
+                    }
+                    .iconBox {
+                        background: var(--rv-secondary);
+                        margin-bottom: 20px;
+                        width: fit-content;
+                        transition: .5s;
+                        padding: 5px;
+                        position: absolute;
+                        left: 0;
+                        width: 50px;
+                        height: 50px;
+                        right: 0;
+                        top: -30px;
+                        margin: auto;
+                        border-radius: 5px;
+                        z-index: 1;
+                        box-shadow: 0 0 15px 0 #999;
+                        @include mediascreen(1024px) {
+                            left: -25px;
+                            margin-right: auto;
+                            margin-left: 0;
+                            top: 0;
+                            bottom: 0;
+                        }
+                        @include mediascreen(767px) {
+                            left: 0;
+                            margin: auto;
+                            top: -38px;
+                            bottom: unset;
+                        }
+                        &::before {
+                            content: "";
+                            transition: .5s;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background-color: var(--rv-secondary);
+                            border-radius: 5px;
+                            height: 100%;
+                            width: 100%;
+                            transform: scale(0);
+                            transition: all .4s ease-in-out;
+                        }
+                        img {
+                            filter: brightness(0) invert(1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .contactFormSection {
+        background: #f4f4f4;
+        .contactsfRow {
+            justify-content: space-between;
+            .contactsfCol {
+                max-width: calc(50% - 15px);
+                @include mediascreen(1024px) {
+                    max-width: 100%;
+                }
+            }
+            .contactFormImg {
+                position: relative;
+                padding-top: 56.6%;
+                height: 100%;
+                @include mediascreen(1024px) {
+                    padding-top: 80%;
+                }
+                img {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    object-fit: cover;
+                    top: 0;
+                    object-position: top;
+                    @include mediascreen(1024px) {
+                        object-position: center;
+                    }
+                }
+            }
+        }
+    }
+    
+    .googleMap {
+        .googleMapIframe {
+            position: relative;
+            height: 100%;
+            padding-top: 46.6%;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    
+    .bookAppointment {
+        display: none !important;
+    }

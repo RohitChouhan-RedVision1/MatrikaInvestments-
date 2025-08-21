@@ -5,13 +5,21 @@ import Image from "next/image";
 import styles from "./about.module.css";
 import Link from "next/link";
 import { FaRegCheckCircle } from "react-icons/fa";
-import Banner from "@/components/section-banner/banner";
 import  RvBreadcrumbs  from "@/components/landing/page-breadcrumbs/rvbreadcrumbs";
 import SectionHeading from "@/components/landing/section-heading/sectionheading";
 
 // console.log(Breadcrumbs);
 export default function AboutUs() {
   const approachData = [
+     {
+      title: "Our Vision",
+      icon: "/images/icon-our-vision.svg",
+      image: "/images/vision.webp",
+      altIcon: "Our Vision Icon",
+      altImage: "Vision Image",
+      description:
+        "To be the most trusted wealth partner, redefining financial success for generations to come.",
+    },
     {
       title: "Our Mission",
       icon: "/images/icon-our-mission.svg",
@@ -19,17 +27,9 @@ export default function AboutUs() {
       altIcon: "Our Mission Icon",
       altImage: "Mission Image",
       description:
-        "Our mission is to provide accessible and personalized financial services, empowering individuals across India to achieve financial success. We are dedicated to offering expert guidance, making financial services available to all, and ensuring every Indian can turn their financial aspirations into reality.",
+        "To empower individuals and families to achieve financial freedom through personalized, transparent, and disciplined wealth management.",
     },
-    {
-      title: "Our Vision",
-      icon: "/images/icon-our-vision.svg",
-      image: "/images/vision.webp",
-      altIcon: "Our Vision Icon",
-      altImage: "Vision Image",
-      description:
-        "Our vision is to become the leading force in shaping a financially secure and prosperous India. We aim to set new standards in the financial industry and be the go-to partner for those seeking financial stability, growth, and success, contributing to a brighter future for our clients and the nation as a whole.",
-    },
+   
     {
       title: "Our Core Values",
       icon: "/images/icon-our-value.svg",

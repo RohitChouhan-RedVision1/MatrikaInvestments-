@@ -71,6 +71,9 @@
                 position: relative;
                 img {
                     filter: drop-shadow(2px 4px 6px #ddd);
+                    height: 450px;
+                    object-fit: contain;
+                    object-position: right;
                 }
             }
         }

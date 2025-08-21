@@ -73,4 +73,9 @@
 }
 .whatwedo .whatWeDoCRow .whatWeDoCCol2 .whatWeDoImages img {
   filter: drop-shadow(2px 4px 6px #ddd);
+  height: 450px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: right;
+     object-position: right;
 }
