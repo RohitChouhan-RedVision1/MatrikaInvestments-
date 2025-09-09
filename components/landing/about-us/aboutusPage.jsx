@@ -51,7 +51,7 @@ export default function AboutSectionPage() {
 
                                     <h3 className="text-lg font-semibold mt-4">Our Promise</h3>
                                     <p>
-                                        We believe that wealth management is not just about numbers—it's about people.
+                                        We believe that wealth management is not just about numbers—it&apos;s about people.
                                         That’s why we take the time to understand what matters most to you, helping you
                                         make informed, confident decisions at every stage of life.
                                     </p>
