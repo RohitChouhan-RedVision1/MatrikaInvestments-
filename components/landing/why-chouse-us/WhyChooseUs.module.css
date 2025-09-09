@@ -1,140 +1,119 @@
 .whyChooseContactCircle {
-    position: absolute;
-    right: 50px;
-    bottom: 0;
-    animation: infiniterotate 30s infinite linear;
+  position: absolute;
+  right: 50px;
+  bottom: 0;
+  animation: infiniterotate 30s infinite linear;
 }
 
 @keyframes infiniterotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
 .whyChooseContactCircle img {
-    max-width: 130px;
+  max-width: 130px;
 }
 
 .whyChooseImg1 img {
-    filter: drop-shadow(2px 4px 6px #ddd);
-    height: 500px;
-    object-fit: contain;
+  filter: drop-shadow(2px 4px 6px #ddd);
 }
 
 @media only screen and (max-width: 991px) {
-    .whyChooseUs .whyChooseRow {
-        flex-direction: column-reverse;
-    }
+  .whyChooseUs .whyChooseRow {
+    flex-direction: column-reverse;
+  }
 }
-
 .whyChooseUs .whyChoosecol1 {
-    max-width: calc(50% - 30px);
+  max-width: calc(50% - 30px);
 }
-
 @media only screen and (max-width: 991px) {
-    .whyChooseUs .whyChoosecol1 {
-        max-width: 100%;
-    }
+  .whyChooseUs .whyChoosecol1 {
+    max-width: 100%;
+  }
 }
-
 .whyChooseUs .whyChoosecol2 {
-    max-width: calc(50% - 30px);
-    position: relative;
+  max-width: calc(50% - 30px);
+  position: relative;
 }
-
 @media only screen and (max-width: 991px) {
-    .whyChooseUs .whyChoosecol2 {
-        max-width: 100%;
-    }
+  .whyChooseUs .whyChoosecol2 {
+    max-width: 100%;
+  }
 }
-
 .whyChooseUs .whyChooseContent {
-    row-gap: 0;
+  row-gap: 0;
 }
-
 .whyChooseUs .whyChooseContent .whyChoosehadding {
-    max-width: 100%;
+  max-width: 100%;
 }
-
 .whyChooseUs .whyChooseContent .whyChooseList {
-    max-width: 100%;
-    padding-top: 30px;
+  max-width: 100%;
+  padding-top: 30px;
 }
-
 .whyChooseUs .whyChooseContent .whyChooseList ul {
-    border-top: 1px solid var(--rv-secondary);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    padding-top: 30px;
+  border-top: 1px solid var(--rv-secondary);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding-top: 30px;
 }
-
 .whyChooseUs .whyChooseContent .whyChooseList ul li {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
-
 .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBoxRow {
-    gap: 30px;
-    justify-content: space-between;
+  gap: 30px;
+  justify-content: space-between;
 }
-
 .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox {
-    max-width: calc(50% - 20px);
+  max-width: calc(50% - 20px);
 }
-
 @media only screen and (max-width: 767px) {
-    .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox {
-        max-width: 100%;
-    }
+  .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox {
+    max-width: 100%;
+  }
 }
-
 .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox:hover {
-    transition: 0.5s;
+  transition: 0.5s;
 }
-
 .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox:hover .iconBox {
-    transition: 0.5s;
+  transition: 0.5s;
 }
-
 .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox:hover .iconBox::before {
-    transition: 0.5s;
-    transform: scale(1) rotate(45deg);
+  transition: 0.5s;
+  transform: scale(1) rotate(45deg);
 }
-
 .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox .iconBox {
-    background: var(--rv-secondary);
-    margin-bottom: 20px;
-    width: -moz-fit-content;
-    width: fit-content;
-    padding: 5px;
-    border-radius: 5px;
-    transition: 0.5s;
-    box-shadow: 0 0 15px 0 #999;
-    position: relative;
+  background: var(--rv-secondary);
+  margin-bottom: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 15px 0 #999;
+  position: relative;
 }
-
 .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox .iconBox img {
-    position: relative;
-    z-index: 11;
-    filter: drop-shadow(2px 4px 6px black);
+  position: relative;
+  z-index: 11;
+  filter: drop-shadow(2px 4px 6px black);
 }
-
 .whyChooseUs .whyChooseContent .whyChooseBoxList .whyChooseBox .iconBox::before {
-    content: "";
-    transition: 0.5s;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--rv-secondary);
-    border-radius: 5px;
-    height: 100%;
-    width: 100%;
-    transform: scale(0);
-    transition: all 0.4s ease-in-out;
-}
+  content: "";
+  transition: 0.5s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--rv-secondary);
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  transform: scale(0);
+  transition: all 0.4s ease-in-out;
+}/*# sourceMappingURL=WhyChooseUs.module.css.map */

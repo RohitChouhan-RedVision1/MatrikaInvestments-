@@ -127,6 +127,82 @@
     }
 }
 
+.aboutUsPage {
+    background-color: #f9f9f9;
+    position: relative;
+    .aboutUsRow {
+        @include mediascreen(1024px) {
+            flex-wrap: wrap;
+        }
+        .aboutContentBody {
+            width: 100%;
+            @include mediascreen(1024px) {
+                max-width: 100%;
+            }
+            .rvacbCard {
+                .rvcncBody {
+                    transition: .5s;
+                    &:hover {
+                        transition: .5s;
+                        .rvcnccicone {
+                            transition: .5s;
+                            &::before {
+                                transition: .5s;
+                                transform: scale(1) rotate(45deg);
+                            }
+                        }
+                    }
+                    .rvcnccicone {
+                        background: var(--rv-secondary);
+                        margin-bottom: 20px;
+                        width: fit-content;
+                        padding: 5px;
+                        border-radius: 5px;
+                        transition: .5s;
+                        box-shadow: 0 0 15px 0 #999;
+                        position: relative;
+                        &::before {
+                            content: "";
+                            transition: .5s;
+                            position: absolute;
+                            top: 0;
+                            bottom: 0;
+                            left: 0;
+                            right: 0;
+                            background-color: var(--rv-secondary);
+                            border-radius: 5px;
+                            height: 100%;
+                            width: 100%;
+                            transform: scale(0);
+                            transition: all .4s ease-in-out;
+                        }
+                        img {
+                            filter: drop-shadow(2px 4px 6px black);
+                        }
+                    }
+                    .rvcncccontent {
+                        .rvcncccTitle {
+                            color: var(--rv-primary);
+                        }
+                        .rvcncccCP {
+                            max-width: 300px;
+                        }
+                    }
+                    .rvcncccContect {
+                        margin-top: 20px;
+                        .rvcnccicone {
+                            margin-bottom: 0;
+                        }
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .contactCircle {
     position: absolute;
     top: 20px;

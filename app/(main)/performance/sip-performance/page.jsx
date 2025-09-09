@@ -544,7 +544,7 @@ export default function Page() {
                   </div>
                 </div>
                 <Button
-                  className="bg-[var(--rv-primary)] text-[var(--rv-secondary)] hover:bg-[var(--rv-secondary)]  hover:text-black"
+                  className="bg-[var(--rv-primary)] text-[var(--rv-white)] hover:bg-[var(--rv-secondary)]  hover:text-black"
                   onClick={() => handleSubmit()}
                 // disabled={!pcode} // disables when pcode is falsy (empty, null, undefined)
                 >

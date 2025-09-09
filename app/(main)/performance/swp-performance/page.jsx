@@ -599,7 +599,7 @@ export default function Page() {
                                     </div>
                                 </div>
                             </div>
-                            <Button className="bg-[var(--rv-primary)] text-[var(--rv-secondary)] hover:text-black disabled:opacity-50 hover:bg-[var(--rv-secondary)]" onClick={() => handleSubmit()}>Show</Button>
+                            <Button className="bg-[var(--rv-primary)] text-[var(--rv-white)] hover:text-black disabled:opacity-50 hover:bg-[var(--rv-secondary)]" onClick={() => handleSubmit()}>Show</Button>
                         </div>
                     </div>
                     <div className='col-span-1'>

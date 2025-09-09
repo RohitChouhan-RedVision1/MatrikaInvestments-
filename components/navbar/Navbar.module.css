@@ -1,7 +1,6 @@
 .mainMenu .navMenuWrapper {
   flex: 1;
-  text-align: center;
-  margin: 0 20px;
+  text-align: end;
 }
 @media only screen and (max-width: 1300px) {
   .mainMenu .navMenuWrapper {
@@ -237,4 +236,4 @@
     transition: 0.5s;
     top: 5px;
   }
-}
+}/*# sourceMappingURL=Navbar.module.css.map */

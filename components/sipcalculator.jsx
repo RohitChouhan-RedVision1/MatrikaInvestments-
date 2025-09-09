@@ -53,33 +53,33 @@ const SipCalculator = ({ data }) => {
             <div className="flex justify-center space-x-4 mb-8">
                 <Button
                     onClick={() => { setIsMonthlySip(true) }}
-                    className={` rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${isMonthlySip ? 'bg-[var(--rv-primary)] text-white' : 'bg-[var(--rv-secondary)] text-[var(--rv-primary)]border'}`}
+                    className={` rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${isMonthlySip ? 'bg-[var(--rv-primary)] text-white' : 'bg-[var(--rv-secondary)] text-[var(--rv-white)] border'}`}
                 >
                     Monthly SIP
                 </Button>
                 <Button
                     onClick={() => { setIsMonthlySip(false) }}
-                    className={` rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${!isMonthlySip ? 'bg-[var(--rv-primary)] text-white' : 'bg-[var(--rv-secondary)] text-[var(--rv-primary)] border'}`}
+                    className={` rounded-full hover:bg-[var(--rv-primary)] hover:text-white ${!isMonthlySip ? 'bg-[var(--rv-primary)] text-white' : 'bg-[var(--rv-secondary)] text-[var(--rv-white)] border'}`}
                 >
                     One-Time Investment
                 </Button>
-             
+
             </div>
 
             <div className="input-fields mt-5 mb-10">
                 {isMonthlySip ? (
                     <div>
                         <div className='flex justify-between items-center'>
-                            <h2>
+                            <h6>
                                 Monthly investment
-                            </h2>
+                            </h6>
                             <div>
                                 <span className='font-semibold  text-[#00aeef]'>₹</span>
                                 <input
-                                    type="text" // Change type to number for better input handling
+                                    type="number" // Change type to number for better input handling
                                     value={monthlyInvestment}
                                     onChange={(e) => setMonthlyInvestment(parseFloat(e.target.value))}
-                                    className='font-semibold text-[#00aeef] w-14 border-none'
+                                    className='font-semibold text-[#00aeef] w-20 border-none'
                                 />
                             </div>
                         </div>
@@ -96,16 +96,16 @@ const SipCalculator = ({ data }) => {
                 ) : (
                     <div>
                         <div className='flex justify-between'>
-                            <h1>
+                            <h6>
                                 Total investment
-                            </h1>
+                            </h6>
                             <div>
                                 <span className='font-semibold text-[#00aeef]'>₹</span>
                                 <input
-                                    type="text" // Change type to number for better input handling
+                                    type="number" // Change type to number for better input handling
                                     value={oneTimeInvestment}
                                     onChange={(e) => setOneTimeInvestment(parseFloat(e.target.value))}
-                                    className='font-semibold text-[#00aeef] w-14 border-none'
+                                    className='font-semibold text-[#00aeef] w-20 border-none'
                                 />
                             </div>
                         </div>
@@ -123,14 +123,14 @@ const SipCalculator = ({ data }) => {
 
                 <div className='items-center mt-5'>
                     <div className='flex justify-between'>
-                        <h1>
+                        <h6>
                             Years
-                        </h1>
+                        </h6>
                         <input
-                            type="text" // Change type to number for better input handling
+                            type="number" // Change type to number for better input handling
                             value={investmentDuration}
                             onChange={(e) => setDuration(e.target.value)} // Update duration
-                            className="font-semibold text-[#00aeef] w-5 border-none"
+                            className="font-semibold text-[#00aeef] w-20 border-none"
                         />
                     </div>
                     <Input

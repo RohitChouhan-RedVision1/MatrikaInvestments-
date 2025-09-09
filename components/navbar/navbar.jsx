@@ -40,7 +40,7 @@ const Navbar = ({ services }) => {
       <div className="container ">
         <div className={`${styles.rvhFlex}`}>
           <Link className={`${styles.sitelogo}`} href="/">
-            
+
             <Image src="/logo.webp" alt="Logo" width={1200} height={100} />
           </Link>
           <div className={`${styles.mainMenu}`} id="navbar-dropdown">
@@ -61,14 +61,14 @@ const Navbar = ({ services }) => {
                     Services <FaChevronDown className="" />
                   </Link>
                   <ul>
-                  {servicesdata?.map((servicesditems, index) => (
+                    {servicesdata?.map((servicesditems, index) => (
 
-                  <li key={index + 1}>
-                    <Link href={`/services/${servicesditems?.slugUrl}`} className="" >
-                      {servicesditems?.title}
-                    </Link>
-                  </li>
-                  ))}
+                      <li key={index + 1}>
+                        <Link href={`/services/${servicesditems?.slugUrl}`} className="" >
+                          {servicesditems?.title}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </li>
                 <li>
@@ -97,14 +97,14 @@ const Navbar = ({ services }) => {
                     Contact us
                   </Link>
                 </li>
-                <div className="">
+                {/* <div className="">
                   <Link
                     href="/login"
                     className="btn btn-primary"
                   >
                     Login
                   </Link>
-                </div>
+                </div> */}
               </ul>
             </div>
             <div className={`${styles.rvmmBtn}`}>
@@ -167,17 +167,17 @@ const Navbar = ({ services }) => {
                 <li onClick={toggleServices} className={`${showServices ? `${styles.active}` : ''}`}> Services <FaChevronDown className="" /> </li>
 
                 {/* Dropdown content */}
-              {showServices && (
+                {showServices && (
                   <ul >
-                       {servicesdata?.map((servicesditems, index) => (
-                <li  key={index + 1}>
-                      <Link
-                        className=""
-                        key={index}
-                        href={`/services/${servicesditems?.slugUrl}`}
-                      >
-                        {servicesditems?.title}
-                      </Link>
+                    {servicesdata?.map((servicesditems, index) => (
+                      <li key={index + 1}>
+                        <Link
+                          className=""
+                          key={index}
+                          href={`/services/${servicesditems?.slugUrl}`}
+                        >
+                          {servicesditems?.title}
+                        </Link>
                       </li>
                     ))}
                   </ul>

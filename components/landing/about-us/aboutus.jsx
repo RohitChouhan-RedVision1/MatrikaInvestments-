@@ -15,10 +15,7 @@ export default function AboutSection() {
     };
     useEffect(() => { fetchdata() }, [])
     return (
-     
-        
         <div className={`${styles.aboutUs} section`}>
-           
             <div className="container">
                 <div className={styles.aboutUsRow}>
                     <div className={styles.aboutUsImages}>
@@ -52,32 +49,32 @@ export default function AboutSection() {
                         />
 
                         <div className={styles.rvacbCard}>
-                                    <div className={styles.rvcncBody}>
-                                            <div className={styles.rvcnccicone}>
-                                                <Image
-                                                    src="/images/icon-financial-strategies.svg"
-                                                    alt="Financial Strategies Icon"
-                                                    width={40}
-                                                    height={40}
-                                                />
-                                            </div>
-                                            <div className={styles.rvcncccontent}>
-                                                <h5 className={styles.rvcncccTitle}>Financial Strategies</h5>
-                                                <p className={styles.rvcncccCP}>Tailored plans to meet your unique financial needs and goals.</p>
-                                            </div>
-                                        <div className={styles.rvcncccContect}>
-                                            <div className={styles.rvcnccicone}>
-                                            <Image
-                                                src="/images/icon-phone-white.svg"
-                                                alt="Phone Icon"
-                                                width={35}
-                                                height={30}
-                                            />
-                                            </div>
-                                            <p><a href={`tel:${mainData?.mobile}`}>{mainData?.mobile}</a></p>
-                                        </div>
+                            <div className={styles.rvcncBody}>
+                                <div className={styles.rvcnccicone}>
+                                    <Image
+                                        src="/images/icon-financial-strategies.svg"
+                                        alt="Financial Strategies Icon"
+                                        width={40}
+                                        height={40}
+                                    />
+                                </div>
+                                <div className={styles.rvcncccontent}>
+                                    <h5 className={styles.rvcncccTitle}>Financial Strategies</h5>
+                                    <p className={styles.rvcncccCP}>Tailored plans to meet your unique financial needs and goals.</p>
+                                </div>
+                                <div className={styles.rvcncccContect}>
+                                    <div className={styles.rvcnccicone}>
+                                        <Image
+                                            src="/images/icon-phone-white.svg"
+                                            alt="Phone Icon"
+                                            width={35}
+                                            height={30}
+                                        />
                                     </div>
-                                {/* <div className="about-author-box wow fadeInUp" data-aos="fade-up" data-aos-anchor-placement="bottom" >
+                                    <p><a href={`tel:${mainData?.mobile}`}>{mainData?.mobile}</a></p>
+                                </div>
+                            </div>
+                            {/* <div className="about-author-box wow fadeInUp" data-aos="fade-up" data-aos-anchor-placement="bottom" >
                                     <div className="about-info-box">
                                         <figure className="image-anime">
                                             <Image

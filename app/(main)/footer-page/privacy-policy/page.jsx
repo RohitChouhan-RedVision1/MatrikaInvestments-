@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
             </div>
         <div className="section">
             <div className="container">
-            <p dangerouslySetInnerHTML={createMarkup()} />
+            <div dangerouslySetInnerHTML={createMarkup()} />
             </div>
         </div>
         </div>

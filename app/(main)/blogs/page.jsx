@@ -3,7 +3,7 @@ import React, { Suspense } from 'react';
 import Loading from './loading';
 import Banner from '@/components/section-banner/banner';
 import { getLatestBlogs } from '@/lib/functions';
-import  RvBreadcrumbs  from "@/components/landing/page-breadcrumbs/rvbreadcrumbs";
+import RvBreadcrumbs from "@/components/landing/page-breadcrumbs/rvbreadcrumbs";
 
 import styles from './blogpage.module.css'
 
@@ -12,24 +12,24 @@ export default async function Blogs() {
     return (
         <div className="">
             <div className="">
-             <RvBreadcrumbs 
-            maintitle="Blogs"
-            />
+                <RvBreadcrumbs
+                    maintitle="Blogs"
+                />
             </div>
-        <section className={`${styles.blogpageSection} section`}>
-            {/* <Banner title="Blogs" /> */}
-            <div className='container'>
-                <div className={`${styles.blogpageRow} rvRow`}>
-                    <Suspense fallback={<Loading />}>
-                        {data?.map((item, index) => (
-                            <div key={index} className={`${styles.blogpageCol} rvCol`}>
-                                <BlogCards item={item} />
-                            </div>
-                        ))}
-                    </Suspense>
+            <section className={`${styles.blogpageSection} section`}>
+                {/* <Banner title="Blogs" /> */}
+                <div className='container'>
+                    <div className={`${styles.blogpageRow} rvRow`}>
+                        <Suspense fallback={<Loading />}>
+                            {data?.map((item, index) => (
+                                <div key={index} className={`${styles.blogpageCol} rvCol`}>
+                                    <BlogCards item={item} />
+                                </div>
+                            ))}
+                        </Suspense>
+                    </div>
                 </div>
-            </div>
-        </section>
-                        </div>
+            </section>
+        </div>
     )
 }

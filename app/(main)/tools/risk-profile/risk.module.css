@@ -44,4 +44,4 @@
 }
 .radiobtn[type=radio]:checked + .radiolabel::after {
   background: var(--rv-secondary);
-}
+}/*# sourceMappingURL=risk.module.css.map */

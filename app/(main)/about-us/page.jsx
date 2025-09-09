@@ -4,14 +4,15 @@ import Image from "next/image";
 
 import styles from "./about.module.css";
 import Link from "next/link";
-import { FaRegCheckCircle } from "react-icons/fa";
-import  RvBreadcrumbs  from "@/components/landing/page-breadcrumbs/rvbreadcrumbs";
+import RvBreadcrumbs from "@/components/landing/page-breadcrumbs/rvbreadcrumbs";
 import SectionHeading from "@/components/landing/section-heading/sectionheading";
+import SectionHeadingPage from "@/components/landing/section-heading/sectionheadingPage";
+import AboutSectionPage from "@/components/landing/about-us/aboutusPage";
 
 // console.log(Breadcrumbs);
 export default function AboutUs() {
   const approachData = [
-     {
+    {
       title: "Our Vision",
       icon: "/images/icon-our-vision.svg",
       image: "/images/vision.webp",
@@ -29,7 +30,7 @@ export default function AboutUs() {
       description:
         "To empower individuals and families to achieve financial freedom through personalized, transparent, and disciplined wealth management.",
     },
-   
+
     {
       title: "Our Core Values",
       icon: "/images/icon-our-value.svg",
@@ -42,30 +43,31 @@ export default function AboutUs() {
   ];
   return (
     <div>
-         <div className="">
-             <RvBreadcrumbs 
-            maintitle="about us"
-            />
-            </div>
+      <div className="">
+        <RvBreadcrumbs
+          maintitle="about us"
+        />
+      </div>
       {/* <Banner title="About Us" /> */}
-      <AboutSection />
+      <AboutSectionPage />
       <div className={`${styles.aboutSection} section`}>
         <div className="container ">
           <div className={`${styles.aboutSectionhRow} rvRow`}>
             <div className={`${styles.aboutSectionhCol1}`}>
-              <SectionHeading
+
+              <SectionHeadingPage
                 maintitle='our approach'
                 title='Customized strategies for'
                 secondPart='financial success'
                 paragraph=''
               />
-              </div>
-                <Link
-                  href="/contact-us"
-                  className="btn btn-secondary"
-                >
-                  Contact now
-                </Link>
+            </div>
+            <Link
+              href="/contact-us"
+              className="btn btn-secondary"
+            >
+              Contact now
+            </Link>
           </div>
           <div className={styles.missionVissionRow}>
             {approachData.map((item, index) => (

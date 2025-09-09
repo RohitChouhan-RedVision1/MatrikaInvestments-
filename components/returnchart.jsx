@@ -52,29 +52,29 @@ export function ReturnChart({ data }) {
                 <CardDescription>Showing NAV trends over time</CardDescription>
             </CardHeader>
             <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
-  <AreaChart
-    data={chartData}
-    margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-  >
-    <CartesianGrid strokeDasharray="3 3" />
-    <XAxis
-      dataKey="date"
-      tickLine={false}
-      axisLine={false}
-      tickMargin={8}
-      tickFormatter={(value) => value && value.slice(0, 10)}
-    />
-    <Tooltip cursor={false} />
-    <Area
-      type="monotone"
-      dataKey="value"
-      stroke="#8884d8"
-      fill="#8884d8"
-      fillOpacity={0.4}
-    />
-  </AreaChart>
-</ResponsiveContainer>
+                <ResponsiveContainer width="100%" height={300}>
+                    <AreaChart
+                        data={chartData}
+                        margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis
+                            dataKey="date"
+                            tickLine={false}
+                            axisLine={false}
+                            tickMargin={8}
+                            tickFormatter={(value) => value && value.slice(0, 10)}
+                        />
+                        <Tooltip cursor={false} />
+                        <Area
+                            type="monotone"
+                            dataKey="value"
+                            stroke="#8884d8"
+                            fill="#8884d8"
+                            fillOpacity={0.4}
+                        />
+                    </AreaChart>
+                </ResponsiveContainer>
             </CardContent>
             <CardFooter>
                 <div className="flex mb-4 overflow-x-auto">

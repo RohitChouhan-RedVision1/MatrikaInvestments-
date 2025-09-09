@@ -1,307 +1,606 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbSeparator,
-    BreadcrumbPage,
-} from "@/components/ui/breadcrumb";
-import { Input } from "@/components/ui/input";
-import { SippieChart } from "@/components/charts/sippiechart"; // Ensure you have the chart component
-import { CalculatorReturnChart } from "@/components/charts/calculatorReturnChart"; // Ensure you have the chart component
 import { calculators } from "@/data/calculators";
 import { useRouter } from "next/navigation";
-import axios from "axios";
+import { formatValue } from "react-currency-input-field";
+import { RetirementChart } from "@/components/charts/retirementpiechart";
+import RetrementBarChart from "@/components/charts/retirementReturnChart";
 import RvBreadcrumbs from "@/components/landing/page-breadcrumbs/rvbreadcrumbs";
 
+const amountToCommaSeperated = (value) => {
+  const newValue = formatValue({
+    value: value?.toString(),
+    groupSeparator: ",",
+    decimalSeparator: ".",
+    prefix: "₹",
+    intlConfig: { locale: "en-IN", currency: "INR" },
+  });
+  return newValue;
+};
+
 export default function RetirementCalculator() {
-    const router = useRouter();
-    const [currentAge, setCurrentAge] = useState(30);
-    const [retirementAge, setRetirementAge] = useState(60);
-    const [lifeExpectancy, setLifeExpectancy] = useState(85);
-    const [requirement, setRequirement] = useState(40000); // Current Monthly Expenses
-    const [expectedReturnPreRetirement, setExpectedReturnPreRetirement] = useState(14); // in percentage
-    const [expectedReturnPostRetirement, setExpectedReturnPostRetirement] = useState(7); // in percentage
-    const [inflationRate, setInflationRate] = useState(7); // in percentage
-    const [result, setResult] = useState(null);
-    const [chartData, setChartData] = useState(null);
+  const router = useRouter();
+  const [curentAge, setCurrentAge] = useState("30");
+  const [RetirementAge, setRetirementAge] = useState("60");
+  const [lifeExpectancy, setLifeExpectancy] = useState("85");
+  const [currentlyMonth, setCurrentlyMonth] = useState("40000");
+  const [InflationRate, setInflationRate] = useState("7");
+  const [pretrement, setPretrement] = useState("14");
+  const [postretrement, setPostretrement] = useState("7");
+  const [inflationpostretrement, setInflationpostretrement] = useState("5");
+  const [totalMonthlyExpences, setTotalMonthlyExpences] = useState();
+  const [totalLumpsumCorpuss, setTotalLumpsumCorpuss] = useState();
+  const [totalThroughSips, setTotalThroughSips] = useState();
+  const [totalThroughLumpsums, setTotalThroughLumpsums] = useState();
+  const [years, setYears] = useState();
+  const [principalBarAmount, setPrincipalBarAmount] = useState();
+  const [Intrested, setIntrested] = useState();
+  const [balance, setBalance] = useState();
 
-    const calculateRetirement = async () => {
-        const res = await axios.get(`${process.env.NEXT_PUBLIC_DATA_API}/api/calculators/retirement-plan?currentAge=${currentAge}&retirementAge=${retirementAge}&expectedReturnPreRetirement=${expectedReturnPreRetirement}&expectedReturnPostRetirement=${expectedReturnPostRetirement}&inflationRate=${inflationRate}&monthlyexpense=${requirement}&lifeExpectancy=${lifeExpectancy}&apikey=${process.env.NEXT_PUBLIC_API_KEY}`);
-        if (res.status === 200) {
-            const data = res.data
-            const retirementCorpus = data.retirementCorpus;
-            const futureMonthlyExpense = data.futureMonthlyExpense;
-            const lumpsumInvestment = data.lumpsumFutureValue;
-            const sipInvestment = data.sipFutureValue;
-            const yearlyData = data.yearlyData;
-            setResult({
-                retirementCorpus: Math.round(retirementCorpus),
-                futureValue: Math.round(futureMonthlyExpense),
-                lumpsumInvestment: Math.round(lumpsumInvestment),
-                sipInvestment: Math.round(sipInvestment),
-                totalInvestment: Math.round(requirement),
-            });
-            setChartData(yearlyData);
-        }
-    };
+  const handleCalculatorChange = (e) => {
+    const selectedRoute = e.target.value;
+    if (selectedRoute) {
+      router.push(selectedRoute); // Navigate to selected route
+    }
+  };
 
-    useEffect(() => {
-        calculateRetirement();
-    }, [currentAge, retirementAge, requirement, expectedReturnPreRetirement, expectedReturnPostRetirement, inflationRate, lifeExpectancy]);
-    const handleCalculatorChange = (e) => {
-        const selectedRoute = e.target.value;
-        if (selectedRoute) {
-            router.push(selectedRoute); // Navigate to selected route
-        }
-    };
+  const handleCurrentAge = (e) => {
+    let { value, min, max } = e.target;
+    value = Math.max(Number(min), Math.min(Number(max), Number(value)));
+    setCurrentAge(value);
+  };
 
-    return (
-        <div className="">
-            <div className="">
-                <RvBreadcrumbs
-                    maintitle="Tools"
-                    maintitleLink='/tools/calculators'
-                    lastTitle='Calculators'
-                    lastTitleLink='/tools/calculators'
-                    lastTitle2='Retirement Planning Calculator'
+  const handleRetrimentAge = (e) => {
+    let { value, min, max } = e.target;
+    value = Math.max(Number(min), Math.min(Number(max), Number(value)));
+    setRetirementAge(value);
+  };
 
+  const handleLifeExpectancy = (e) => {
+    let { value, min, max } = e.target;
+    value = Math.max(Number(min), Math.min(Number(max), Number(value)));
+    setLifeExpectancy(value);
+  };
 
-                />
-            </div>
-        <div  className="max-w-screen-xl mx-auto main_section">
-        <div className="">
-            <div className="mb-5 flex justify-between section">
-              
-                <div className="flex justify-between gap-4">
-                    <h2>Explore other calculators</h2>
-                    <select
-                        className="w-full border border-gray-500 rounded-lg p-2"
-                        onChange={handleCalculatorChange}
-                        defaultValue=""
-                    >
-                        <option value="" disabled>
-                            Select
-                        </option>
-                        {calculators.map((calc) => (
-                            <option key={calc.title} value={calc.route}>
-                                {calc.title}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <div className="mb-10">
-                        <h1 className="text-4xl font-bold text-gray-800">
-                            Retirement Planning Calculator
-                        </h1>
-                    </div>
-                    <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-4">
-                        <div className='col-span-1 border border-gray-200 rounded-2xl bg-white p-5'>
-                            <div className="sip-calculator container mx-auto p-3 sticky top-0 z-10">
-                                <div className="input-fields mt-5 mb-10">
-                                    <div>
-                                        <div className='flex justify-between'>
-                                            <h1>Current Age</h1>
-                                            <div>
-                                                <input
-                                                    type="number"
-                                                    value={currentAge}
-                                                    onChange={(e) => setCurrentAge(parseFloat(e.target.value))}
-                                                    className='font-semibold text-green-700 w-10 border-none'
-                                                />
-                                            </div>
-                                        </div>
-                                        <Input
-                                            type="range"
-                                            min="20"
-                                            max="80"
-                                            step="1"
-                                            value={currentAge}
-                                            onChange={(e) => setCurrentAge(parseFloat(e.target.value))}
-                                            className="w-full text-gray-400"
-                                        />
-                                    </div>
-                                    <div className='items-center mt-5'>
-                                        <div className='flex justify-between'>
-                                            <h1>Retirement Age</h1>
-                                            <input
-                                                type="number"
-                                                value={retirementAge}
-                                                onChange={(e) => setRetirementAge(parseFloat(e.target.value))}
-                                                className="font-semibold text-green-700 w-10 border-none"
-                                            />
-                                        </div>
-                                        <Input
-                                            type="range"
-                                            min="30"
-                                            max="100"
-                                            step="1"
-                                            value={retirementAge}
-                                            onChange={(e) => setRetirementAge(parseFloat(e.target.value))}
-                                            className="w-full text-gray-400"
-                                        />
-                                    </div>
-
-                                    <div className='items-center mt-5'>
-                                        <div className='flex justify-between'>
-                                            <h1>Life Expectancy</h1>
-                                            <input
-                                                type="number"
-                                                value={lifeExpectancy}
-                                                onChange={(e) => setLifeExpectancy(parseFloat(e.target.value))}
-                                                className="font-semibold text-green-700 w-10 border-none"
-                                            />
-                                        </div>
-                                        <Input
-                                            type="range"
-                                            min="60"
-                                            max="100"
-                                            step="1"
-                                            value={lifeExpectancy}
-                                            onChange={(e) => setLifeExpectancy(parseFloat(e.target.value))}
-                                            className="w-full text-gray-400"
-                                        />
-                                    </div>
-
-                                    <div className='items-center mt-5'>
-                                        <div className='flex justify-between'>
-                                            <h1>Current Monthly Expenses</h1>
-                                            <div>
-                                                <span className='font-semibold text-green-700'>₹</span>
-                                                <input
-                                                    type="number"
-                                                    value={requirement}
-                                                    onChange={(e) => setRequirement(parseFloat(e.target.value))}
-                                                    className="font-semibold text-green-700 w-14 border-none"
-                                                />
-                                            </div>
-                                        </div>
-                                        <Input
-                                            type="range"
-                                            min="1000"
-                                            max="100000"
-                                            step="1000"
-                                            value={requirement}
-                                            onChange={(e) => setRequirement(parseFloat(e.target.value))}
-                                            className="w-full text-gray-400"
-                                        />
-                                    </div>
-
-                                    <div className='items-center mt-5'>
-                                        <div className='flex justify-between'>
-                                            <h1>Inflation Rate (%)</h1>
-                                            <input
-                                                type="number"
-                                                value={inflationRate}
-                                                onChange={(e) => setInflationRate(parseFloat(e.target.value))}
-                                                className="font-semibold text-green-700 w-10 border-none"
-                                            />
-                                        </div>
-                                        <Input
-                                            type="range"
-                                            min="0"
-                                            max="30"
-                                            step="1"
-                                            value={inflationRate}
-                                            onChange={(e) => setInflationRate(parseFloat(e.target.value))}
-                                            className="w-full text-gray-400"
-                                        />
-                                    </div>
-
-                                    <div className='items-center mt-5'>
-                                        <div className='flex justify-between'>
-                                            <h1>Expected Return Pre-Retirement (%)</h1>
-                                            <input
-                                                type="number"
-                                                value={expectedReturnPreRetirement}
-                                                onChange={(e) => setExpectedReturnPreRetirement(parseFloat(e.target.value))}
-                                                className="font-semibold text-green-700 w-10 border-none"
-                                            />
-                                        </div>
-                                        <Input
-                                            type="range"
-                                            min="1"
-                                            max="30"
-                                            step="1"
-                                            value={expectedReturnPreRetirement}
-                                            onChange={(e) => setExpectedReturnPreRetirement(parseFloat(e.target.value))}
-                                            className="w-full text-gray-400"
-                                        />
-                                    </div>
-                                    <div className='items-center mt-5'>
-                                        <div className='flex justify-between'>
-                                            <h1>Expected Return Post-Retirement (%)</h1>
-                                            <input
-                                                type="number"
-                                                value={expectedReturnPostRetirement}
-                                                onChange={(e) => setExpectedReturnPostRetirement(parseFloat(e.target.value))}
-                                                className="font-semibold text-green-700 w-10 border-none"
-                                            />
-                                        </div>
-                                        <Input
-                                            type="range"
-                                            min="1"
-                                            max="30"
-                                            step="1"
-                                            value={expectedReturnPostRetirement}
-                                            onChange={(e) => setExpectedReturnPostRetirement(parseFloat(e.target.value))}
-                                            className="w-full text-gray-400"
-                                        />
-                                    </div>
-
-                                    {/* Display Results */}
-                                    {result && (
-                                        <div className="mt-5">
-                                            <div className='flex justify-between px-5 mb-3'>
-                                                <p>Future Monthly Expenses</p>
-                                                <p className='font-bold text-lg'>₹{result?.futureValue?.toLocaleString()}</p>
-                                            </div>
-                                            <hr className='mb-3' />
-                                            <div className='flex justify-between px-5 mb-3'>
-                                                <p>Required Corpus At Retirement</p>
-                                                <p className='font-bold text-lg'>₹{result?.retirementCorpus?.toLocaleString()}</p>
-                                            </div>
-                                            <hr className='mb-3' />
-                                            <div className='flex justify-between px-5 mb-3'>
-                                                <p>Planning Through SIP</p>
-                                                <p className='font-bold text-lg'>₹{result?.sipInvestment?.toLocaleString()}</p>
-                                            </div>
-                                            <hr className='mb-3' />
-                                            <div className='flex justify-between px-5 mb-3'>
-                                                <p>Planning Through Lump Sum</p>
-                                                <p className='font-bold text-lg'>₹{result?.lumpsumInvestment?.toLocaleString()}</p>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                        <div className='col-span-1 space-y-5'>
-                            <SippieChart
-                                piedata={result}
-                                title={'Future & Current Monthly Expenses Breakup'}
-                                customLabels={{
-                                    invested: "Future Monthly Expenses",
-                                    return: "Current Monthly Expenses",
-                                }}
-                                className="h-full"
-                            />
-                            <CalculatorReturnChart data={chartData}
-                                title="SIP"
-                                className="h-full"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
+  const handleCurrentMonth = (e) => {
+    e.preventDefault();
+    let { value, min, max } = e.target;
+    value = Math.max(
+      Number(min),
+      Math.min(Number(max), Number(value?.replace(/[^\d.]/gi, "")))
     );
+    setCurrentlyMonth(value);
+  };
+
+  const handleInflationRate = (e) => {
+    e.preventDefault();
+    const { value } = e.target;
+    if (value >= 0 && value <= 30) {
+      setInflationRate(value);
+    } else {
+      setInflationRate("0");
+    }
+  };
+
+  const handlePreretrement = (e) => {
+    e.preventDefault();
+    const { value } = e.target;
+    if (value >= 0 && value <= 30) {
+      setPretrement(value);
+    } else {
+      setPretrement(0);
+    }
+  };
+
+  const handlePostretrement = (e) => {
+    e.preventDefault();
+    const { value } = e.target;
+    if (value >= 0 && value <= 30) {
+      setPostretrement(value);
+    } else {
+      setPostretrement(0);
+    }
+  };
+
+  useEffect(() => {
+    const calculateCorpus = () => {
+      const amount = parseInt(currentlyMonth);
+      const rate = parseInt(InflationRate) / 100;
+      const G = parseInt(inflationpostretrement) / 100;
+      const R = parseInt(postretrement) / 100;
+      const duration = parseInt(RetirementAge) - parseInt(curentAge);
+      const lifeExpectancyage =
+        parseInt(lifeExpectancy) - parseInt(RetirementAge);
+      const yearlyfinal_amounts = amount * Math.pow(1 + rate, duration);
+      const Monthlyexpense = Math.round(yearlyfinal_amounts);
+      const Principal = parseInt(Monthlyexpense) * 12;
+      const numerator = 1 - Math.pow((1 + G) / (1 + R), lifeExpectancyage);
+      const denominator = R - G;
+      const CorpusAmount = Math.round(Principal * (numerator / denominator));
+      const monthlyRates = parseInt(pretrement) / 100;
+      const sipAmounts =
+        CorpusAmount /
+        (((Math.pow(1 + monthlyRates / 12, duration * 12) - 1) /
+          (monthlyRates / 12)) *
+          (1 + monthlyRates / 12));
+
+      var cage = parseInt(curentAge);
+      var mage = parseInt(RetirementAge);
+      var eage = parseInt(lifeExpectancy);
+      var cmexp = parseInt(currentlyMonth);
+      var infla = parseInt(InflationRate);
+      var intre = parseInt(pretrement);
+      var expextintre = parseInt(postretrement);
+      var amut = cmexp;
+      var year = mage - cage;
+      var interest = infla / 400;
+      var infrete = infla / 100;
+      var retexp = expextintre / 100;
+      var durations = (year * 12) / 3;
+      var amut = amut * 12;
+      var a = 1 + interest;
+      a = Math.pow(a, durations);
+      a = Math.round(amut * a);
+      var nper = eage - (mage - 1);
+      var net_returns = (1 + retexp) / (1 + infrete) - 1;
+      if (net_returns != 0)
+        var pv =
+          (a *
+            (1 + net_returns * 1) *
+            ((Math.pow(1 + net_returns, nper) - 1) / net_returns)) /
+          Math.pow(1 + net_returns, nper);
+      else pv = a * nper;
+      var fuvalue = Math.round(pv);
+      setTotalLumpsumCorpuss(fuvalue);
+      var n = (year * 12) / 3;
+      var i = intre / 400;
+      var ana = 1 + i;
+      ana = Math.pow(ana, n);
+      ana = ana - 1;
+      var b = 1 + i;
+      b = Math.pow(b, -1 / 3);
+      b = 1 - b;
+      var mon = Math.round((b * fuvalue) / ana);
+      setTotalThroughSips(mon);
+      var al = 1 + i;
+      al = Math.pow(al, durations);
+      var amut = Math.round(fuvalue / al);
+      setTotalThroughLumpsums(amut);
+      setTotalMonthlyExpences(Math.round(a / 12));
+      var d = new Date();
+      var n_year = d.getFullYear();
+      var yearArr = [];
+      var principalArr = [];
+      var balanceArr = [];
+      var monthArr = [];
+      var tableData = [];
+      var exportData = [];
+      var mage = parseInt(RetirementAge);
+      var retexps = parseInt(postretrement) / 100;
+      var ann_exp = a;
+      var corpus1 = fuvalue;
+      var rage = 0;
+      var balance = corpus1 - ann_exp;
+      var blnc_grwth = Math.round(balance + balance * retexps);
+      var bintr = Math.round(balance * retexp);
+      while (fuvalue > 0 && rage <= lifeExpectancyage) {
+        if (balance < 20) {
+          balance = 0;
+          bintr = 0;
+          blnc_grwth = 0;
+        }
+        var age = parseInt(mage);
+
+        var MonthlyExpences = Math.round(ann_exp / 12);
+
+        var AnnualExpense = Math.round(ann_exp);
+
+        var interest = formatValue({
+          value: bintr?.toString(),
+          groupSeparator: ",",
+          decimalSeparator: ".",
+          prefix: "₹",
+          intlConfig: { locale: "en-IN", currency: "INR" },
+        });
+
+        tableData.push({
+          age: age,
+          corpus: amountToCommaSeperated(parseInt(corpus1).toFixed(0)),
+          MonthlyExpence: amountToCommaSeperated(
+            parseInt(MonthlyExpences).toFixed(0)
+          ),
+          AnnualExpenses: amountToCommaSeperated(
+            parseInt(AnnualExpense).toFixed(0)
+          ),
+          balance: amountToCommaSeperated(parseInt(balance).toFixed(0)),
+          interest: amountToCommaSeperated(parseInt(bintr).toFixed(0)),
+          BalanceGrowth: amountToCommaSeperated(
+            parseInt(blnc_grwth).toFixed(0)
+          ),
+        });
+
+        exportData.push({
+          age: age,
+          corpus: corpus1,
+          MonthlyExpence: MonthlyExpences,
+          AnnualExpenses: AnnualExpense,
+          balances: balance,
+          interest: bintr,
+          BalanceGrowth: blnc_grwth,
+        });
+
+        principalArr.push(ann_exp);
+        n_year = parseInt(n_year) + 1;
+        yearArr.push(`Age-${mage} Years`);
+        balanceArr.push(blnc_grwth);
+        monthArr.push(Math.round(ann_exp / 12));
+        rage = rage + 1;
+        var mage = parseInt(mage) + 1;
+        corpus1 = blnc_grwth;
+        ann_exp = Math.round(ann_exp + ann_exp * infrete);
+        balance = corpus1 - ann_exp;
+        blnc_grwth = Math.round(balance + balance * retexp);
+        bintr = Math.round(balance * retexp);
+      }
+
+      setYears(yearArr);
+      setPrincipalBarAmount(principalArr);
+      setIntrested(monthArr);
+      setBalance(balanceArr);
+
+      var p = sipAmounts;
+      var n = ((duration + 1) * 12) / 3;
+      var i_rate = parseInt(postretrement) / 400;
+      var amount1 = 1 + i_rate;
+      amount1 = Math.pow(amount1, n);
+      amount1 = amount1 - 1;
+      amount1 = p * amount1;
+      var amount2 = 1 + i_rate;
+      amount2 = Math.pow(amount2, -1 / 3);
+      amount2 = 1 - amount2;
+      var final_amount = amount1 / amount2;
+      final_amount = Math.round(final_amount);
+    };
+    calculateCorpus();
+  }, [
+    InflationRate,
+    RetirementAge,
+    curentAge,
+    currentlyMonth,
+    lifeExpectancy,
+    postretrement,
+    pretrement,
+    inflationpostretrement,
+  ]);
+
+  return (
+    <div>
+      <div className="">
+        <RvBreadcrumbs
+          maintitle="Calulators"
+        />
+      </div>
+      <div className="py-10 px-4">
+        <div className="max-w-screen-2xl mx-auto main-section">
+          <div>
+            <div>
+              <div className="mb-5 flex flex-col md:flex-row gap-5 justify-between ">
+                <div className="">
+                  <span className="text-2xl md:text-3xl font-bold uppercase">
+                    Retirement Planning Calculator
+                  </span>
+                </div>
+                <div className="flex justify-between gap-4">
+                  <span>Explore other calculators</span>
+                  <select
+                    className="w-full border border-gray-500 rounded-lg p-2"
+                    onChange={handleCalculatorChange}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Select
+                    </option>
+                    {calculators.map((calc) => (
+                      <option key={calc.title} value={calc.route}>
+                        {calc.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mb-4">
+                <div className="col-span-1 border border-gray-200 rounded-2xl bg-white p-5">
+                  <div className="sip-calculator container mx-auto p-3 sticky top-0 z-10">
+                    <div className="input-fields mt-5 mb-10">
+                      <div>
+                        <div className="flex justify-between">
+                          <span>Current Age (Y)</span>
+                          <div>
+                            <input
+                              type="text"
+                              value={curentAge || ""}
+                              min="0"
+                              max="100"
+                              placeholder="0"
+                              onChange={handleCurrentAge}
+                              className="font-semibold text-var(--rv-primary) w-20 border px-2 py-2 rounded"
+                            />
+                          </div>
+                        </div>
+                        <input
+                          type="range"
+                          min="1"
+                          max="100"
+                          step="1"
+                          value={isNaN(curentAge) ? 0 : curentAge}
+                          onChange={handleCurrentAge}
+                          className="customRange w-full"
+                          style={{
+                            "--progress":
+                              (((isNaN(curentAge) ? 0 : curentAge) - 1) /
+                                (100 - 1)) *
+                              100 +
+                              "%",
+                          }}
+                        />
+                      </div>
+                      <div className="items-center mt-5">
+                        <div className="flex justify-between">
+                          <span>Retirement Age(Y)</span>
+                          <input
+                            min="0"
+                            max="100"
+                            type="text"
+                            placeholder="0"
+                            value={RetirementAge || ""}
+                            onChange={handleRetrimentAge}
+                            className="font-semibold text-var(--rv-primary) w-20 border px-2 py-2 rounded"
+                          />
+                        </div>
+                        <input
+                          type="range"
+                          min="35"
+                          max="100"
+                          step="1"
+                          value={isNaN(RetirementAge) ? 0 : RetirementAge}
+                          onChange={handleRetrimentAge}
+                          className="customRange w-full"
+                          style={{
+                            "--progress":
+                              (((isNaN(RetirementAge) ? 0 : RetirementAge) - 35) /
+                                (100 - 35)) *
+                              100 +
+                              "%",
+                          }}
+                        />
+                      </div>
+
+                      <div className="items-center mt-5">
+                        <div className="flex justify-between">
+                          <span>Life Expectancy (Y)</span>
+                          <input
+                            min="0"
+                            max="100"
+                            type="text"
+                            value={lifeExpectancy || ""}
+                            onChange={handleLifeExpectancy}
+                            className="font-semibold text-var(--rv-primary) w-20 border px-2 py-2 rounded"
+                          />
+                        </div>
+                        <input
+                          type="range"
+                          min="35"
+                          max="100"
+                          step="1"
+                          value={isNaN(lifeExpectancy) ? 0 : lifeExpectancy}
+                          onChange={handleLifeExpectancy}
+                          className="customRange w-full"
+                          style={{
+                            "--progress":
+                              (((isNaN(lifeExpectancy) ? 0 : lifeExpectancy) - 35) /
+                                (100 - 35)) *
+                              100 +
+                              "%",
+                          }}
+                        />
+                      </div>
+
+                      <div className="items-center mt-5">
+                        <div className="flex justify-between">
+                          <span>Current Monthly Expenses (₹)</span>
+                          <div>
+                            <span className="font-semibold text-var(--rv-primary)">
+
+                            </span>
+                            <input
+                              max="10000000"
+                              min="0"
+                              type="text"
+                              placeholder="0"
+                              value={currentlyMonth || ""}
+                              onChange={handleCurrentMonth}
+                              className="font-semibold text-var(--rv-primary) w-30 border px-2 py-2 rounded"
+                            />
+                          </div>
+                        </div>
+                        <input
+                          type="range"
+                          min="1000"
+                          max="10000000"
+                          step="1000"
+                          value={isNaN(currentlyMonth) ? 0 : currentlyMonth}
+                          onChange={handleCurrentMonth}
+                          className="customRange w-full"
+                          style={{
+                            "--progress":
+                              (((isNaN(currentlyMonth) ? 0 : currentlyMonth) - 1000) /
+                                (10000000 - 1000)) *
+                              100 +
+                              "%",
+                          }}
+                        />
+                      </div>
+
+                      <div className="items-center mt-5">
+                        <div className="flex justify-between">
+                          <span>Inflation Rate (%)</span>
+                          <input
+                            max="30"
+                            min="0"
+                            type="text"
+                            placeholder="0"
+                            value={InflationRate}
+                            onChange={handleInflationRate}
+                            className="font-semibold text-[var(--rv-primary)] w-20 border px-2 py-2 rounded"
+                          />
+                        </div>
+
+                        <input
+                          type="range"
+                          min="1"
+                          max="30"
+                          step="1"
+                          value={isNaN(Number(InflationRate)) ? 0 : Number(InflationRate)}
+                          onChange={handleInflationRate}
+                          className="customRange w-full"
+                          style={{
+                            "--progress":
+                              ((isNaN(Number(InflationRate)) ? 0 : Number(InflationRate) - 1) /
+                                (30 - 1)) *
+                              100 +
+                              "%",
+                          }}
+                        />
+                      </div>
+
+
+                      <div className="items-center mt-5">
+                        <div className="flex justify-between">
+                          <span>Expected Return Pre-Retirement (%)</span>
+                          <input
+                            max="30"
+                            min="0"
+                            type="text"
+                            placeholder="0"
+                            value={pretrement === "" ? "" : Number(pretrement)}
+                            onChange={handlePreretrement}
+                            className="font-semibold text-[var(--rv-primary)] w-20 border px-2 py-2 rounded"
+                          />
+                        </div>
+
+                        <input
+                          type="range"
+                          min="1"
+                          max="30"
+                          step="1"
+                          value={isNaN(Number(pretrement)) ? 0 : Number(pretrement)}
+                          onChange={handlePreretrement}
+                          className="customRange w-full"
+                          style={{
+                            "--progress":
+                              ((isNaN(Number(pretrement)) ? 0 : Number(pretrement) - 1) /
+                                (30 - 1)) *
+                              100 +
+                              "%",
+                          }}
+                        />
+                      </div>
+
+                      <div className="items-center mt-5">
+                        <div className="flex justify-between">
+                          <span>Expected Return Post-Retirement (%)</span>
+                          <input
+                            max="30"
+                            min="0"
+                            type="text"
+                            placeholder="0"
+                            value={postretrement === "" ? "" : Number(postretrement)}
+                            onChange={handlePostretrement}
+                            className="font-semibold text-[var(--rv-primary)] w-20 border px-2 py-2 rounded"
+                          />
+                        </div>
+
+                        <input
+                          type="range"
+                          min="1"
+                          max="30"
+                          step="1"
+                          value={isNaN(Number(postretrement)) ? 0 : Number(postretrement)}
+                          onChange={handlePostretrement}
+                          className="customRange w-full"
+                          style={{
+                            "--progress":
+                              ((isNaN(Number(postretrement)) ? 0 : Number(postretrement) - 1) /
+                                (30 - 1)) *
+                              100 +
+                              "%",
+                          }}
+                        />
+                      </div>
+
+
+                      {/* Display Results */}
+
+                      <div className="mt-5">
+                        <div className="flex justify-between px-5 mb-3">
+                          <p>Future Monthly Expenses</p>
+                          <p className="font-bold text-lg">
+                            {amountToCommaSeperated(totalMonthlyExpences)}
+                          </p>
+                        </div>
+                        <hr className="mb-3" />
+                        <div className="flex justify-between px-5 mb-3">
+                          <p>Required Corpus At Retirement</p>
+                          <p className="font-bold text-lg">
+                            {amountToCommaSeperated(totalLumpsumCorpuss)}
+                          </p>
+                        </div>
+                        <hr className="mb-3" />
+                        <div className="flex justify-between px-5 mb-3">
+                          <p>Planning Through SIP</p>
+                          <p className="font-bold text-lg">{amountToCommaSeperated(totalThroughSips)}</p>
+                        </div>
+                        <hr className="mb-3" />
+                        <div className="flex justify-between px-5 mb-3">
+                          <p>Planning Through Lump Sum</p>
+                          <p className="font-bold text-lg">
+                            {amountToCommaSeperated(totalThroughLumpsums)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-span-1 space-y-5">
+                  <RetirementChart
+                    piedata={{
+                      CurrentMonthlyExpenses: Number(
+                        parseFloat(currentlyMonth)?.toFixed(2)
+                      ),
+                      FutureMonthlyExpenses: Number(
+                        totalMonthlyExpences?.toFixed(2)
+                      ),
+                    }}
+                    title={"Future & Current Monthly Expenses Breakup"}
+                    customLabels={{
+                      FutureMonthlyExpenses: "Future Monthly Expenses",
+                      CurrentMonthlyExpenses: "Current Monthly Expenses",
+                    }}
+                    className="h-full"
+                  />
+                  <RetrementBarChart
+                    years={years}
+                    Intrested={Intrested}
+                    principalBarAmount={principalBarAmount}
+                    balance={balance}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -106,6 +106,81 @@
   margin-bottom: 0;
 }
 
+.aboutUsPage {
+  background-color: #f9f9f9;
+  position: relative;
+}
+@media only screen and (max-width: 1024px) {
+  .aboutUsPage .aboutUsRow {
+    flex-wrap: wrap;
+  }
+}
+.aboutUsPage .aboutUsRow .aboutContentBody {
+  width: 100%;
+}
+@media only screen and (max-width: 1024px) {
+  .aboutUsPage .aboutUsRow .aboutContentBody {
+    max-width: 100%;
+  }
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody {
+  transition: 0.5s;
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody:hover {
+  transition: 0.5s;
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody:hover .rvcnccicone {
+  transition: 0.5s;
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody:hover .rvcnccicone::before {
+  transition: 0.5s;
+  transform: scale(1) rotate(45deg);
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcnccicone {
+  background: var(--rv-secondary);
+  margin-bottom: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 5px;
+  transition: 0.5s;
+  box-shadow: 0 0 15px 0 #999;
+  position: relative;
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcnccicone::before {
+  content: "";
+  transition: 0.5s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--rv-secondary);
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  transform: scale(0);
+  transition: all 0.4s ease-in-out;
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcnccicone img {
+  filter: drop-shadow(2px 4px 6px black);
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcncccontent .rvcncccTitle {
+  color: var(--rv-primary);
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcncccontent .rvcncccCP {
+  max-width: 300px;
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcncccContect {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.aboutUsPage .aboutUsRow .aboutContentBody .rvacbCard .rvcncBody .rvcncccContect .rvcnccicone {
+  margin-bottom: 0;
+}
+
 .contactCircle {
   position: absolute;
   top: 20px;
@@ -134,4 +209,4 @@
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-}
+}/*# sourceMappingURL=AboutSection.module.css.map */

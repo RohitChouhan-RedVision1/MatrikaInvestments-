@@ -7,20 +7,25 @@
 .missionVissionRow {
     display: flex;
     gap: 30px;
+
     @include mediascreen(1024px) {
         flex-wrap: wrap;
         margin-top: 30px;
         row-gap: 0;
     }
+
     .missionVissionCol {
         max-width: 33.3%;
         width: 100%;
+
         @include mediascreen(1024px) {
             max-width: calc(50% - 15px);
         }
+
         @include mediascreen(767px) {
             max-width: 100%;
         }
+
         .missionVissionItem {
             background: var(--white-color);
             border: 1px solid var(--divider-color);
@@ -28,26 +33,32 @@
             height: calc(100% - 30px);
             margin-bottom: 30px;
             overflow: hidden;
+
             // @include mediascreen(1024px) {
             //     display: flex;
             //     flex-direction: row-reverse;
             // }
             &:hover {
                 transition: .5s;
+
                 .missionVissionImage {
                     img {
                         transform: scale(1.1);
                     }
                 }
+
                 .iconBox {
                     transition: .5s;
+
                     &::before {
                         transition: .5s;
                         transform: scale(1) rotate(45deg);
                     }
                 }
             }
+
             .missionVissionImage {
+
                 // @include mediascreen(1024px) {
                 //     max-width: calc(50% - 15px);
                 //     figure {
@@ -62,23 +73,29 @@
                     transition: all 0.4s ease-in-out;
                 }
             }
+
             .missionVissionContent {
                 position: relative;
                 z-index: 1;
+
                 h3 {
                     font-weight: 600;
                     text-transform: capitalize;
                     margin-bottom: 15px;
                     transition: all 0.4s ease-in-out;
                 }
+
                 p {
                     margin: 0;
                     transition: all 0.4s ease-in-out;
                 }
             }
+
             .missionVissionHeader {
                 position: relative;
                 padding: 20px;
+                min-height: 290px;
+
                 &:after {
                     content: '';
                     position: absolute;
@@ -93,6 +110,7 @@
                     transition: all 0.4s ease-in-out;
                 }
             }
+
             .iconBox {
                 background: var(--rv-secondary);
                 margin-bottom: 20px;
@@ -102,6 +120,7 @@
                 transition: .5s;
                 box-shadow: 0 0 15px 0 #999;
                 position: relative;
+
                 &::before {
                     content: "";
                     transition: .5s;
@@ -117,6 +136,7 @@
                     transform: scale(0);
                     transition: all .4s ease-in-out;
                 }
+
                 img {
                     filter: drop-shadow(2px 4px 6px black) brightness(0) invert(1);
                 }
@@ -129,11 +149,14 @@
     display: flex;
     justify-content: space-between;
     align-items: start;
+
     @include mediascreen(992px) {
         justify-content: start;
     }
+
     .aboutSectionhCol1 {
         max-width: 600px;
+
         @include mediascreen(992px) {
             max-width: 100%;
         }
